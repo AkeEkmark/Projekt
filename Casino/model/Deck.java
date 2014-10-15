@@ -10,7 +10,7 @@ public class Deck {
 	private ArrayList<Card> diamonds;
 	/**
 	 * Constructor for a deck of cards.
-	 * Creates an arraylist containing 4 arraylists for each suit. 
+	 * Creates an arraylist containing 4 arraylists, one for each suit. 
 	 * 0 = hearts.
 	 * 1 = spades.
 	 * 2 = clubs.
@@ -26,19 +26,19 @@ public class Deck {
 		deck.add(spades);
 		deck.add(clubs);
 		deck.add(diamonds);
-		for (int i = 1; i < 15; i++) {
+		for (int i = 1; i < 14; i++) {
 			Card card = new Card("Heart", i);
 			hearts.add(card);
 		}
-		for (int i = 1; i < 15; i++) {
+		for (int i = 1; i < 14; i++) {
 			Card card = new Card("Spade", i);
 			spades.add(card);
 		}
-		for (int i = 1; i < 15; i++) {
+		for (int i = 1; i < 14; i++) {
 			Card card = new Card("Club", i);
 			clubs.add(card);
 		}
-		for (int i = 1; i < 15; i++) {
+		for (int i = 1; i < 14; i++) {
 			Card card = new Card("Diamond", i);
 			diamonds.add(card);
 		}	
