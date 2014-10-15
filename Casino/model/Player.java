@@ -25,10 +25,16 @@ public abstract class Player {
 	private void addCardToPile(Card card) {
 		cardsInPile.add(card);
 	}
+	private void removeCardFromHand(Card card) {
+		cardsOnHand.remove(card);
+	}
 	public void takeCardFromBoard(Card cardOnHand, ArrayList<Card> cardsOnBoard) {
 		addCardToPile(cardOnHand);
+		removeCardFromHand(cardOnHand);
 		for (Card card : cardsOnBoard) {
 			addCardToPile(card);
+			board.removeCardFromBoard(card);
+			
 		}
 	}
 	public void addCardToBoard(Card card) {
