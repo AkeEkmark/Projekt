@@ -23,14 +23,11 @@ public class modelTest {
 		deck = new Deck();
 		player1.setBoard(board);
 		player2.setBoard(board);
-		player1.dealCardToHand(deck.getCard(0, 4));
-		player2.dealCardToHand(deck.getCard(1, 1));
-		player1.dealCardToHand(deck.getCard(3, 10));
-		player2.dealCardToHand(deck.getCard(2, 12));
-		board.addCardtoBoard(deck.getCard(0, 1));
-		board.addCardtoBoard(deck.getCard(1, 4));
-		board.addCardtoBoard(deck.getCard(2, 6));
-		board.addCardtoBoard(deck.getCard(3, 9));
+		player1.dealCardToHand(deck.getCard(3));
+		player2.dealCardToHand(deck.getCard(14));
+		board.addCardToBoard(deck.getCard(0));
+		board.addCardToBoard(deck.getCard(17));
+		
 	}
 
 	@After
@@ -42,7 +39,7 @@ public class modelTest {
 		ArrayList<Card> cardstotake = new ArrayList<Card>();
 		cardstotake.add(board.getCardsOnBoard().get(1));
 		player1.takeCardFromBoard(player1.getCardsOnHand().get(0), cardstotake);
-		assertEquals(player1.getCardsInPile().get(0), deck.getCard(0, 4));
+		assertEquals(player1.getCardsInPile().get(0), deck.getCard(3));
 	}
 
 }
