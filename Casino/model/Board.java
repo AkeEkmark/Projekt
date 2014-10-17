@@ -11,7 +11,7 @@ public class Board {
 	public ArrayList<Card> getCardsOnBoard() {
 		return cardsOnBoard;
 	}
-	public void addCardtoBoard(Card card) {
+	public void addCardToBoard(Card card) {
 		cardsOnBoard.add(card);
 	}
 	public void removeCardFromBoard(Card card) {
