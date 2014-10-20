@@ -1,42 +1,37 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+import model.Card.Suit;
+import model.Card.Value;
 
 public class Deck {
 	private ArrayList<Card> deck;
+
 	
 	/**
 	 * Constructor for a deck of cards.
-	 * Creates an arraylist containing 4 arraylists, one for each suit. 
-	 * 0 = hearts.
-	 * 1 = spades.
-	 * 2 = clubs.
-	 * 3 = diamonds.
+	 * Creates an arraylist containing the playingcards. 
+	 * 0 - 12 = hearts.
+	 * 13 - 25 = spades.
+	 * 26 - 38 = clubs.
+	 * 39 - 51 = diamonds.
 	 */
 	public Deck() {
 		deck = new ArrayList<Card>();
-		
-		for (int i = 1; i < 14; i++) {
-			Card card = new Card("Heart", i);
-			deck.add(card);
+		for (Suit suit : Suit.values()) {
+			for (Value value : Value.values()) {
+				Card card = new Card(suit, value, "filename");
+				deck.add(card);
+			}
 		}
-		for (int i = 1; i < 14; i++) {
-			Card card = new Card("Spade", i);
-			deck.add(card);
-		}
-		for (int i = 1; i < 14; i++) {
-			Card card = new Card("Club", i);
-			deck.add(card);
-		}
-		for (int i = 1; i < 14; i++) {
-			Card card = new Card("Diamond", i);
-			deck.add(card);
-		}	
+			
 	}
 	/**
 	 * A get method to get a card from the deck.
-	 * @param i is the suit of card, 0 = hearts, 1 = spades, 2 = clubs, 3 = diamonds
-	 * @param j is the value of the card, 1 = ace, 13 = king
+	 * @param i is the position of the card
 	 * @return The card at that position.
 	 */
 	public Card getCard(int i) {
@@ -44,6 +39,10 @@ public class Deck {
 		return card;
 	}
 	public void shuffleDeck() {
-		
+		long seed = System.nanoTime();
+		Collections.shuffle(deck, new Random(seed));
+	}
+	public ArrayList<Card> getDeck() {
+		return deck;
 	}
 }

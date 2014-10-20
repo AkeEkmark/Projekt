@@ -1,20 +1,26 @@
 package model;
 
 public class Card {
-	private String suit;
-	private int value;
+	public enum Suit { HEART, SPADE, CLUB, DIAMOND }; 
+	public enum Value { ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING };
+	private Suit suit;
+	private Value value;
+	private String fileName;
 	
-	public Card(String suit, int value) {
+	public Card(Suit suit, Value value, String fileName) {
 		this.suit = suit;
 		this.value = value;
+		this.fileName = fileName;
 	}
 
-	public String getSuit() {
+	public Suit getSuit() {
 		return suit;
 	}
 
-	public int getValue() {
+	public Value getValue() {
 		return value;
 	}
-	
+	public String toString() {
+		return "Card of Suit: " +suit +" and Value: " +value;
+	}
 }
