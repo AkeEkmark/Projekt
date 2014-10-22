@@ -11,9 +11,9 @@ public class StartUpMenu extends JFrame {
 	public StartUpMenu() {
 		
         setName("Initial Setup");
-		setSize(550, 450);
-		 JToggleButton d1 = new JToggleButton("Difficulty 1");
-		 JToggleButton d2 = new JToggleButton("Difficulty 2");
+        setSize(550, 450);
+		JToggleButton d1 = new JToggleButton("Difficulty 1");
+		JToggleButton d2 = new JToggleButton("Difficulty 2");
 		 JToggleButton d3 = new JToggleButton("Difficulty 3");
 		 JButton players1 = new JButton("1 opponent");
 		 JButton players2 = new JButton("2 opponents");
