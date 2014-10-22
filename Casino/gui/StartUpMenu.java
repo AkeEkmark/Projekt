@@ -7,7 +7,7 @@ public class StartUpMenu extends JFrame {
 
 	public StartUpMenu() {
 
-
+        setName("Initial Setup");
 		setSize(1000, 1000);
 		 JToggleButton d1 = new JToggleButton("Difficulty 1");
 		 JToggleButton d2 = new JToggleButton("Difficulty 2");
@@ -17,7 +17,8 @@ public class StartUpMenu extends JFrame {
 		 JButton players3 = new JButton("3 opponents");
 		 JLabel l1 = new JLabel("Choose number of opponents");
 		 JLabel l2 = new JLabel("Choose difficulty");
-	
+		
+		 
 		 d1.setSize(150, 50);
 		 d2.setSize(150, 50);
 		 d3.setSize(150, 50);
@@ -40,8 +41,9 @@ public class StartUpMenu extends JFrame {
 		 add(players3);
 		 add (l1);
 		 add(l2);
-		 
+		
 		 setVisible(true);
+		 
 		
 	}
 
