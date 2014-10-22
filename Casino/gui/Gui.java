@@ -2,9 +2,11 @@ package gui;
 import javax.swing.*;
 
 public class Gui {
+	GameFrame gameframe;
 	public Gui(){
-		StartUpMenu sum = new StartUpMenu();
-
+		gameframe = new GameFrame();
+		
+		
 		 
 	}
 	

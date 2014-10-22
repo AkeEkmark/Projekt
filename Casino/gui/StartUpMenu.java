@@ -1,14 +1,17 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
 import javax.swing.*;
 
 public class StartUpMenu extends JFrame {
 
 
 	public StartUpMenu() {
-
+		
         setName("Initial Setup");
-		setSize(1000, 1000);
+		setSize(550, 450);
 		 JToggleButton d1 = new JToggleButton("Difficulty 1");
 		 JToggleButton d2 = new JToggleButton("Difficulty 2");
 		 JToggleButton d3 = new JToggleButton("Difficulty 3");
@@ -33,15 +36,15 @@ public class StartUpMenu extends JFrame {
 		 players3.setLocation(300,150);
 		 l1.setLocation(150, 100);
 		 l2.setLocation(0,0);
+		 add(l2);
 		 add(d1);
 		 add(d2);
 		 add(d3);
 		 add(players1);
 		 add(players2);
 		 add(players3);
-		 add (l1);
-		 add(l2);
 		
+		 add (l1);
 		 setVisible(true);
 		 
 		
