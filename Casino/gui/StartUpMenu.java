@@ -12,20 +12,23 @@ public class StartUpMenu extends JFrame {
 	DifficultyPanel difficultyPanel;
 	NbrPlayersPanel nbrPlayersPanel;
 	LengthPanel lengthPanel;
+	IntroPanel introPanel;
 
 	public StartUpMenu() {
 		startPanel = new StartPanel();
 		difficultyPanel = new DifficultyPanel();
 		nbrPlayersPanel = new NbrPlayersPanel();
 		lengthPanel = new LengthPanel();
-		add(lengthPanel, BorderLayout.NORTH);
+		introPanel = new IntroPanel();
+		add(lengthPanel, BorderLayout.CENTER);
 		add(difficultyPanel, BorderLayout.WEST);
 		add(nbrPlayersPanel, BorderLayout.EAST);
 		add(startPanel, BorderLayout.SOUTH);
+		add(introPanel, BorderLayout.NORTH);
 		pack();
         setName("Initial Setup");
         setLocationRelativeTo(null);
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(600, 800));
 	
 	 setVisible(true);
 		 

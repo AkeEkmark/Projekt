@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
 
 public class LengthPanel extends JPanel implements ActionListener {
 	public LengthPanel() {
@@ -20,13 +22,14 @@ public class LengthPanel extends JPanel implements ActionListener {
 		JRadioButton p1 = new JRadioButton("15 points");
 		JRadioButton p2 = new JRadioButton("20 points");
 		JRadioButton p3 = new JRadioButton("30 points");
-		JLabel l3 = new JLabel("Win");
+		JLabel i = new JLabel("Victory Condition");
+		
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
-		setLayout(new BorderLayout());
 
-		panel1.setPreferredSize(new Dimension(100, 200));
-		panel2.setPreferredSize(new Dimension(100, 200));
+		
+		panel1.setPreferredSize(new Dimension(100, 100));
+		panel2.setPreferredSize(new Dimension(100, 100));
 
 		ButtonGroup btngroup = new ButtonGroup();
 		btngroup.add(d1);
@@ -36,23 +39,25 @@ public class LengthPanel extends JPanel implements ActionListener {
 		btngroup.add(p1);
 		btngroup.add(p2);
 		btngroup.add(p3);
-
-		add(panel1, BorderLayout.WEST);
-		add(panel2, BorderLayout.EAST);
 		
+		
+		
+		add(i);
+		add(panel1);
+		add(panel2);
+	
 		
 		
 		panel1.add(d1);
 		panel1.add(d2);
 		panel1.add(d3);
-		add(l3, BorderLayout.NORTH);
 
 		panel2.add(p1);
 		panel2.add(p2);
 		panel2.add(p3);
 
-		setPreferredSize(new Dimension(100, 200));
-		setBackground(Color.PINK);
+		setPreferredSize(new Dimension(100, 250));
+		
 		setVisible(true);
 
 	}
