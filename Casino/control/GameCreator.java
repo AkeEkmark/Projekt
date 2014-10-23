@@ -16,9 +16,9 @@ public class GameCreator {
 		this.gameType = gameType;
 		deckHandler = new DeckHandlerImpl();
 		boardHandler = new BoardHandlerImpl();
-		playerHandler = new PlayerHandlerImpl();
+		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty);
 		playerMoves = new PlayerMovesImpl(playerHandler.getPlayers());
-		pointCounter = new PointCounter();
+		pointCounter = new PointCounter(boardHandler.getBoard());
 		
 	}
 

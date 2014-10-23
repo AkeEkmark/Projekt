@@ -8,8 +8,9 @@ import model.Player;
 
 public class PlayerHandlerImpl implements PlayerHandler {
 	ArrayList<Player> players;
-	public PlayerHandlerImpl() {
+	public PlayerHandlerImpl(int nbrOfOpponents, int difficulty) {
 		players = new ArrayList<Player>();
+		
 	}
 	@Override
 	public void createHumanPlayer(String name, int position) {

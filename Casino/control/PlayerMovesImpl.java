@@ -13,6 +13,7 @@ public class PlayerMovesImpl implements PlayerMoves {
 
 	@Override
 	public void takeCardFromBoard(Card cardOnHand, ArrayList<Card> cardsOnBoard, Player player) {
+		
 		player.takeCardFromBoard(cardOnHand, cardsOnBoard);
 
 	}
