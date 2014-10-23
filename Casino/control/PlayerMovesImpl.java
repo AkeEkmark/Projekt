@@ -12,14 +12,14 @@ public class PlayerMovesImpl implements PlayerMoves {
 	}
 
 	@Override
-	public void takeCardFromBoard(Card cardOnHand, ArrayList<Card> cardsOnBoard) {
-		// TODO Auto-generated method stub
+	public void takeCardFromBoard(Card cardOnHand, ArrayList<Card> cardsOnBoard, Player player) {
+		player.takeCardFromBoard(cardOnHand, cardsOnBoard);
 
 	}
 
 	@Override
-	public void addCardToBoard(Card cardOnHand) {
-		// TODO Auto-generated method stub
+	public void addCardToBoard(Card cardOnHand, Player player) {
+		player.addCardToBoard(cardOnHand);
 
 	}
 

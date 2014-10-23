@@ -10,17 +10,16 @@ public class DeckHandlerImpl implements DeckHandler {
 	}
 	@Override
 	public Card getCard(int i) {
-		// TODO Auto-generated method stub
-		return null;
+		Card card = deck.getCard(i);
+		return card;
 	}
-
-	
 
 	@Override
 	public void shuffleDeck() {
-		// TODO Auto-generated method stub
+		deck.shuffleDeck();
 
 	}
+	@Override
 	public Deck getDeck() {
 		return deck;
 	}

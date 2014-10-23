@@ -8,22 +8,29 @@ import model.Card;
 public class BoardHandlerImpl implements BoardHandler {
 	Board board;
 	
+	public BoardHandlerImpl() {
+		board = new Board();
+	}
+	
 	@Override
 	public ArrayList<Card> getCardsOnBoard() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Card> cards = board.getCardsOnBoard();
+		return cards;
 	}
 
 	@Override
 	public void addCardtoBoard(Card card) {
-		// TODO Auto-generated method stub
+		board.addCardToBoard(card);
 
 	}
 
 	@Override
 	public void removeCardFromBoard(Card card) {
-		// TODO Auto-generated method stub
+		board.removeCardFromBoard(card);
 
+	}
+	public Board getBoard() {
+		return board;
 	}
 
 }
