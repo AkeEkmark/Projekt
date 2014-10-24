@@ -16,7 +16,7 @@ public class StartPanel extends JPanel{
 		
 		 setPreferredSize(new Dimension(25, 50));
 		 setBackground(Color.MAGENTA);
-		 
+		 setBorder(new PanelBorder(""));
 		 add(startbtn);
 		 setVisible(true);
 		

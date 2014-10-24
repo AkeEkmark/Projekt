@@ -21,7 +21,7 @@ public class LengthPanel extends JPanel{
 	private JRadioButton p1;
 	private JRadioButton p2;
 	private JRadioButton p3;
-	private JLabel i;
+	//private JLabel i;
 	private JPanel panel1;
 	private JPanel panel2;
 	private ButtonGroup btngroup;
@@ -32,7 +32,7 @@ public class LengthPanel extends JPanel{
 		p1 = new JRadioButton("15 points");
 		p2 = new JRadioButton("20 points");
 		p3 = new JRadioButton("30 points");
-		i = new JLabel("Victory Condition");
+		//i = new JLabel("Victory Condition");
 		
 		panel1 = new JPanel();
 		panel2 = new JPanel();
@@ -52,7 +52,7 @@ public class LengthPanel extends JPanel{
 		
 		
 		
-		add(i);
+		//add(i);
 		add(panel1);
 		add(panel2);
 	
@@ -65,8 +65,8 @@ public class LengthPanel extends JPanel{
 		panel2.add(p1);
 		panel2.add(p2);
 		panel2.add(p3);
-
-		setPreferredSize(new Dimension(100, 250));
+		setBorder(new PanelBorder("Victory Condition"));
+		setPreferredSize(new Dimension(150, 250));
 		
 		setVisible(true);
 

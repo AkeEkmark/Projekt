@@ -8,6 +8,7 @@ public class IntroPanel extends JPanel {
 
 	public IntroPanel() {
 		i = new JLabel("Casino");
+		setBorder(new PanelBorder(""));
 		add(i);
 	}
 }
