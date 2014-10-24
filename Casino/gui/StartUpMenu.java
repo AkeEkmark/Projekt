@@ -25,10 +25,10 @@ public class StartUpMenu extends JFrame {
 		add(nbrPlayersPanel, BorderLayout.EAST);
 		add(startPanel, BorderLayout.SOUTH);
 		add(introPanel, BorderLayout.NORTH);
-		pack();
 		setName("Initial Setup");
 		setLocationRelativeTo(null);
-		setPreferredSize(new Dimension(600, 800));
+		setPreferredSize(new Dimension(600, 275));
+		pack();
 
 		setVisible(true);
 

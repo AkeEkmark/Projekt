@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class NbrPlayersPanel extends JPanel {
+public class NbrPlayersPanel extends OrangePanel {
 	private JRadioButton c1;
 	private JRadioButton c2;
 	private JRadioButton c3;
@@ -18,9 +18,9 @@ public class NbrPlayersPanel extends JPanel {
 	private ButtonGroup btngroup;
 
 	public NbrPlayersPanel() {
-		c1 = new JRadioButton("2 players");
-		c2 = new JRadioButton("3 players");
-		c3 = new JRadioButton("4 players");
+		c1 = new JButtonBackground("2 players");
+		c2 = new JButtonBackground("3 players");
+		c3 = new JButtonBackground("4 players");
 		//l2 = new JLabel("Number of players");
 		btngroup = new ButtonGroup();
 
@@ -33,7 +33,6 @@ public class NbrPlayersPanel extends JPanel {
 		add(c3);
 		setBorder(new PanelBorder("Number of players"));
 		setPreferredSize(new Dimension(140, 150));
-		setBackground(new Metallic());
 		setVisible(true);
 
 	}

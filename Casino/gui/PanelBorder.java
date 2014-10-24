@@ -12,7 +12,7 @@ public class PanelBorder extends TitledBorder {
 		super(blackline, title);
 		setTitlePosition(CENTER);
 		setTitleJustification(CENTER);
-		
+		setTitleColor(Color.black);
 	}
 
 	
