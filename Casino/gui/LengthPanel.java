@@ -14,24 +14,34 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class LengthPanel extends JPanel implements ActionListener {
+public class LengthPanel extends OrangePanel{
+	private JRadioButton d1;
+	private JRadioButton d2;
+	private JRadioButton d3;
+	private JRadioButton p1;
+	private JRadioButton p2;
+	private JRadioButton p3;
+	//private JLabel i;
+	private JPanel panel1;
+	private JPanel panel2;
+	private ButtonGroup btngroup;
 	public LengthPanel() {
-		JRadioButton d1 = new JRadioButton("One deck");
-		JRadioButton d2 = new JRadioButton("Two decks");
-		JRadioButton d3 = new JRadioButton("Three decks");
-		JRadioButton p1 = new JRadioButton("15 points");
-		JRadioButton p2 = new JRadioButton("20 points");
-		JRadioButton p3 = new JRadioButton("30 points");
-		JLabel i = new JLabel("Victory Condition");
+		d1 = new JButtonBackground("One deck");
+		d2 = new JButtonBackground("Two decks");
+		d3 = new JButtonBackground("Three decks");
+		p1 = new JButtonBackground("15 points");
+		p2 = new JButtonBackground("20 points");
+		p3 = new JButtonBackground("30 points");
+		//i = new JLabel("Victory Condition");
 		
-		JPanel panel1 = new JPanel();
-		JPanel panel2 = new JPanel();
+		panel1 = new OrangePanel();
+		panel2 = new OrangePanel();
 
 		
 		panel1.setPreferredSize(new Dimension(100, 100));
 		panel2.setPreferredSize(new Dimension(100, 100));
 
-		ButtonGroup btngroup = new ButtonGroup();
+		btngroup = new ButtonGroup();
 		btngroup.add(d1);
 		btngroup.add(d2);
 		btngroup.add(d3);
@@ -42,7 +52,7 @@ public class LengthPanel extends JPanel implements ActionListener {
 		
 		
 		
-		add(i);
+		//add(i);
 		add(panel1);
 		add(panel2);
 	
@@ -55,14 +65,11 @@ public class LengthPanel extends JPanel implements ActionListener {
 		panel2.add(p1);
 		panel2.add(p2);
 		panel2.add(p3);
-
-		setPreferredSize(new Dimension(100, 250));
+		setBorder(new PanelBorder("Victory Condition"));
+		setPreferredSize(new Dimension(300, 250));
 		
 		setVisible(true);
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-
-	}
 }

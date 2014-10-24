@@ -3,7 +3,7 @@ package gui;
 import model.Card;
 
 public class BackCardPanel {
-	Card card;
+	private Card card;
 	public BackCardPanel(Card card) {
 		this.card = card;
 	}

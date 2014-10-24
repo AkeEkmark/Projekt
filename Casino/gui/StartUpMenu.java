@@ -8,11 +8,11 @@ import javax.swing.*;
 
 public class StartUpMenu extends JFrame {
 
-	StartPanel startPanel;
-	DifficultyPanel difficultyPanel;
-	NbrPlayersPanel nbrPlayersPanel;
-	LengthPanel lengthPanel;
-	IntroPanel introPanel;
+	private StartPanel startPanel;
+	private DifficultyPanel difficultyPanel;
+	private NbrPlayersPanel nbrPlayersPanel;
+	private LengthPanel lengthPanel;
+	private IntroPanel introPanel;
 
 	public StartUpMenu() {
 		startPanel = new StartPanel();
@@ -25,14 +25,13 @@ public class StartUpMenu extends JFrame {
 		add(nbrPlayersPanel, BorderLayout.EAST);
 		add(startPanel, BorderLayout.SOUTH);
 		add(introPanel, BorderLayout.NORTH);
+		setName("Initial Setup");
+		setLocationRelativeTo(null);
+		setPreferredSize(new Dimension(600, 275));
 		pack();
-        setName("Initial Setup");
-        setLocationRelativeTo(null);
-        setPreferredSize(new Dimension(600, 800));
-	
-	 setVisible(true);
-		 
-		
+
+		setVisible(true);
+
 	}
 
 }

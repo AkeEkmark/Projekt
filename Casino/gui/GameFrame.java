@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 
 public class GameFrame extends JFrame{
-	MainPanel mainPanel;
+	private MainPanel mainPanel;
 	public GameFrame() {
 		setPreferredSize(new Dimension(800, 600));
 		
