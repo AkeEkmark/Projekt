@@ -10,31 +10,30 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class NbrPlayersPanel extends JPanel implements ActionListener{
-	public NbrPlayersPanel(){
-		 JRadioButton c1 = new JRadioButton("2 players");
-		 JRadioButton c2 = new JRadioButton("3 players");
-		 JRadioButton c3 = new JRadioButton("4 players");
-		 JLabel l2 = new JLabel("Number of players");
-		 ButtonGroup btngroup=new ButtonGroup(); 
-		 
-		 btngroup.add(c1);
-		 btngroup.add(c2);
-		 btngroup.add(c3);
-		 add(l2);
-		 add(c1);
-		 add(c2);
-		 add(c3);
-		 setPreferredSize(new Dimension(140, 150));
-		 setBackground(new Metallic());
-		 setVisible(true);
-		
-	}
+public class NbrPlayersPanel extends JPanel {
+	private JRadioButton c1;
+	private JRadioButton c2;
+	private JRadioButton c3;
+	private JLabel l2;
+	private ButtonGroup btngroup;
 
-	
-	public void actionPerformed(ActionEvent arg0) {
-		
-		
-	}
+	public NbrPlayersPanel() {
+		c1 = new JRadioButton("2 players");
+		c2 = new JRadioButton("3 players");
+		c3 = new JRadioButton("4 players");
+		l2 = new JLabel("Number of players");
+		btngroup = new ButtonGroup();
 
+		btngroup.add(c1);
+		btngroup.add(c2);
+		btngroup.add(c3);
+		add(l2);
+		add(c1);
+		add(c2);
+		add(c3);
+		setPreferredSize(new Dimension(140, 150));
+		setBackground(new Metallic());
+		setVisible(true);
+
+	}
 }

@@ -11,13 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class DifficultyPanel extends JPanel  {
+	private JRadioButton c1;
+	private JRadioButton c2;
+	private JRadioButton c3;
+	private JLabel l1;
+	private ButtonGroup btngroup;
 	public DifficultyPanel(){
-		 JRadioButton c1 = new JRadioButton("Beginner");
-		 JRadioButton c2 = new JRadioButton("Normal");
-		 JRadioButton c3 = new JRadioButton("Advanced");
+		 c1 = new JRadioButton("Beginner");
+		 c2 = new JRadioButton("Normal");
+		 c3 = new JRadioButton("Advanced");
 		 JLabel l1 = new JLabel("Choose Level");
 		 
-		 ButtonGroup btngroup=new ButtonGroup(); 
+		btngroup=new ButtonGroup(); 
 		 btngroup.add(c1);
 		 btngroup.add(c2);
 		 btngroup.add(c3);

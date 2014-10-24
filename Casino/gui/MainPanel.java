@@ -5,11 +5,11 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 
 public class MainPanel extends JPanel{
-	BoardPanel boardPanel;
-	PlayerPanel player1;
-	OpponentPanel player2;
-	OpponentPanel player3;
-	OpponentPanel player4;
+	private BoardPanel boardPanel;
+	private PlayerPanel player1;
+	private OpponentPanel player2;
+	private OpponentPanel player3;
+	private OpponentPanel player4;
 	public MainPanel() {
 		setLayout(new BorderLayout());
 		boardPanel = new BoardPanel();

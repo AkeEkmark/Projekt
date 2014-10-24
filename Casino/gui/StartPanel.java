@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class StartPanel extends JPanel{
-	JButton startbtn = new JButton("Start");
+	private JButton startbtn;
 	public StartPanel(){
-		
+		 startbtn = new JButton("Start");
 		
 		 setPreferredSize(new Dimension(25, 50));
 		 setBackground(Color.MAGENTA);
