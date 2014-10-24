@@ -39,6 +39,7 @@ public class Deck {
 	 */
 	public Card getCard(int i) {
 		Card card = deck.get(i);
+		deck.remove(i);
 		return card;
 	}
 	public void shuffleDeck() {

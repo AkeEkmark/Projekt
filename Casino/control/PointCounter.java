@@ -36,4 +36,14 @@ public class PointCounter {
 	private void addPoints(int points, Player player) {
 		player.addPoints(points);
 	}
+	public void endOfDeck(ArrayList<Player> players) {
+		int cards = 0;
+		ArrayList<Player> mostCards;
+		for (Player player: players) {
+			
+		}
+		
+	}
+	
+	
 }

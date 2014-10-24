@@ -29,6 +29,7 @@ public class BoardHandlerImpl implements BoardHandler {
 		board.removeCardFromBoard(card);
 
 	}
+	@Override
 	public Board getBoard() {
 		return board;
 	}

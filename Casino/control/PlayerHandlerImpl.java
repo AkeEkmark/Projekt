@@ -29,6 +29,7 @@ public class PlayerHandlerImpl implements PlayerHandler {
 		players.add(player);
 
 	}
+	@Override
 	public ArrayList<Player> getPlayers() {
 		return players;
 	}
