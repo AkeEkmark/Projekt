@@ -6,7 +6,7 @@ import model.Board;
 import model.Card;
 
 public class BoardHandlerImpl implements BoardHandler {
-	Board board;
+	private Board board;
 	
 	public BoardHandlerImpl() {
 		board = new Board();

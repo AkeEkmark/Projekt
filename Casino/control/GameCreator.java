@@ -1,14 +1,14 @@
 package control;
 
 public class GameCreator {
-	BoardHandler boardHandler;
-	DeckHandler deckHandler;
-	PlayerHandler playerHandler;
-	PlayerMoves playerMoves;
-	PointCounter pointCounter;
-	int nbrOfOpponents;
-	int difficulty;
-	int gameType;
+	private BoardHandler boardHandler;
+	private DeckHandler deckHandler;
+	private PlayerHandler playerHandler;
+	private PlayerMoves playerMoves;
+	private PointCounter pointCounter;
+	private int nbrOfOpponents;
+	private int difficulty;
+	private int gameType;
 	
 	public GameCreator(int nbrOfOpponents, int difficulty, int gameType ) {
 		this.nbrOfOpponents = nbrOfOpponents;
@@ -16,7 +16,7 @@ public class GameCreator {
 		this.gameType = gameType;
 		deckHandler = new DeckHandlerImpl();
 		boardHandler = new BoardHandlerImpl();
-		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty);
+		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty, boardHandler.getBoard());
 		playerMoves = new PlayerMovesImpl(playerHandler.getPlayers());
 		pointCounter = new PointCounter(boardHandler.getBoard());
 		

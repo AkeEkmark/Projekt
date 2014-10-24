@@ -6,7 +6,7 @@ import model.Card;
 import model.Player;
 
 public class PlayerMovesImpl implements PlayerMoves {
-	ArrayList<Player> players;
+	private ArrayList<Player> players;
 	public PlayerMovesImpl(ArrayList<Player> players) {
 		this.players = players;
 	}

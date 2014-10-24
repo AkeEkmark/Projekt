@@ -4,7 +4,7 @@ import model.Card;
 import model.Deck;
 
 public class DeckHandlerImpl implements DeckHandler {
-	Deck deck;
+	private Deck deck;
 	public DeckHandlerImpl() {
 		deck = new Deck();
 	}
