@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class DifficultyPanel extends JPanel implements ActionListener {
+public class DifficultyPanel extends JPanel  {
 	public DifficultyPanel(){
-		 JRadioButton c1 = new JRadioButton("Easy");
-		 JRadioButton c2 = new JRadioButton("Hard");
-		 JRadioButton c3 = new JRadioButton("King");
+		 JRadioButton c1 = new JRadioButton("Beginner");
+		 JRadioButton c2 = new JRadioButton("Normal");
+		 JRadioButton c3 = new JRadioButton("Advanced");
 		 JLabel l1 = new JLabel("Choose Level");
 		 
 		 ButtonGroup btngroup=new ButtonGroup(); 
@@ -27,15 +27,12 @@ public class DifficultyPanel extends JPanel implements ActionListener {
 		 add(c2);
 		 add(c3);
 		 
-		 setPreferredSize(new Dimension(100, 200));
+		 setPreferredSize(new Dimension(140, 150));
 		 setBackground(Color.YELLOW);
 		 setVisible(true);
 	}
 
 
-	public void actionPerformed(ActionEvent e) {
 	
-		
-	}
 
 }

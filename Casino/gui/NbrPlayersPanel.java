@@ -25,8 +25,8 @@ public class NbrPlayersPanel extends JPanel implements ActionListener{
 		 add(c1);
 		 add(c2);
 		 add(c3);
-		 setPreferredSize(new Dimension(100, 200));
-		 setBackground(Color.CYAN);
+		 setPreferredSize(new Dimension(140, 150));
+		 setBackground(new Metallic());
 		 setVisible(true);
 		
 	}
