@@ -13,6 +13,7 @@ public class BoardPanel extends JPanel{
 		sbp = new ScoreboardPanel();
 		setPreferredSize(new Dimension(600, 400));
 		setBackground(Color.blue );
+		add(sbp);
 		setVisible(true);
 	}
 	public void addCard(Card card) {
