@@ -1,6 +1,8 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import model.Board;
 import model.Card;
@@ -37,13 +39,53 @@ public class PointCounter {
 		player.addPoints(points);
 	}
 	public void endOfDeck(ArrayList<Player> players) {
-		int cards = 0;
-		ArrayList<Player> mostCards;
-		for (Player player: players) {
-			
+		int maxCards;
+		int maxSpades;
+		ArrayList<Player> mostCards = new ArrayList<Player>();
+		ArrayList<Player> mostSpades = new ArrayList<Player>();
+		ArrayList<Integer> checkCards = new ArrayList<Integer>();
+		ArrayList<Integer> checkSpades = new ArrayList<Integer>();
+		for (Player player : players) {
+			int spades = 0;
+			checkCards.add(player.getCardsInPile().size());
+			for (Card card : player.getCardsInPile()) {
+				if (card.getSuit() == Suit.SPADE) {
+					spades++;
+				}
+			}
+			checkSpades.add(spades);
+		}
+		maxCards = Collections.max(checkCards);
+		maxSpades = Collections.max(checkSpades);
+		for (Player player : players) {
+			int spades = 0;
+			if (player.getCardsInPile().size() == maxCards) {
+				mostCards.add(player);
+			}
+			for (Card card : player.getCardsInPile()) {
+				if (card.getSuit() == Suit.SPADE) {
+					spades++;
+				}
+			}
+			if (spades == maxSpades) {
+				mostSpades.add(player);
+			}
 		}
 		
-	}
+		for (Player player : mostCards) {
+			addPoints(1, player);
+		}
+		for (Player player : mostSpades) {
+			addPoints(1, player);
+		}
+		for (Player player : players) {
+			if (mostCards.contains(player) && (mostSpades.contains(player))) {
+				addPoints(1, player);
+			}
+		}
+			
+		
+	}	
 	
 	
 }
