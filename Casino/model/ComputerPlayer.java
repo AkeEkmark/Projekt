@@ -13,4 +13,3 @@ public class ComputerPlayer extends Player {
 		super.cardsOnHand = new ArrayList<Card>();
 	}
 }
- 

@@ -20,6 +20,9 @@ public class Card {
 	public Value getValue() {
 		return value;
 	}
+	public String getFileName() {
+		return fileName;
+	}
 	public String toString() {
 		return "Card of Suit: " +suit +" and Value: " +value;
 	}

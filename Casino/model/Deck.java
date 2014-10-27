@@ -21,10 +21,13 @@ public class Deck {
 	 */
 	public Deck() {
 		deck = new ArrayList<Card>();
+		int i = 0;
 		for (Suit suit : Suit.values()) {
 			for (Value value : Value.values()) {
-				Card card = new Card(suit, value, "filename");
+				String filename = "Cards/"+i+".png";
+				Card card = new Card(suit, value, filename);
 				deck.add(card);
+				i++;
 			}
 		}
 			
@@ -36,6 +39,7 @@ public class Deck {
 	 */
 	public Card getCard(int i) {
 		Card card = deck.get(i);
+		deck.remove(i);
 		return card;
 	}
 	public void shuffleDeck() {
