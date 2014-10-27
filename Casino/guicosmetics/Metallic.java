@@ -1,4 +1,4 @@
-package gui;
+package guicosmetics;
 
 import java.awt.Color;
 

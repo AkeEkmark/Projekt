@@ -1,5 +1,8 @@
 package gui;
 
+import guicosmetics.OrangePanel;
+import guicosmetics.PanelBorder;
+
 import java.awt.Color;
 
 import javax.swing.JPanel;

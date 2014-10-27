@@ -1,4 +1,4 @@
-package gui;
+package guicosmetics;
 
 import javax.swing.JRadioButton;
 

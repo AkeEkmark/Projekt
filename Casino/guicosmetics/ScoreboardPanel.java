@@ -1,4 +1,4 @@
-package gui;
+package guicosmetics;
 
 import java.awt.Dimension;
 
@@ -24,7 +24,8 @@ public class ScoreboardPanel extends JPanel {
 		add(l2);
 		add(l3);
 		add(l4);
-		setPreferredSize(new Dimension(200, 200));
+		setPreferredSize(new Dimension(150, 50));
+		setBackground(new Boardcolor());
 		setVisible(true);
 	}
 

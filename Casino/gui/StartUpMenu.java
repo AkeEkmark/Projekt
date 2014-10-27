@@ -27,7 +27,7 @@ public class StartUpMenu extends JFrame {
 		add(introPanel, BorderLayout.NORTH);
 		setName("Initial Setup");
 		setLocationRelativeTo(null);
-		setPreferredSize(new Dimension(600, 275));
+		setPreferredSize(new Dimension(600, 300));
 		pack();
 
 		setVisible(true);

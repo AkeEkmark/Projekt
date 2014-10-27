@@ -1,6 +1,7 @@
-package gui;
+package guicosmetics;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,11 +13,14 @@ public class ProgressPanel extends JPanel {
 	private JLabel l2;
 
 	public ProgressPanel() {
+		
 		l1 = new JLabel("Number of cards in pile : " + pileSize);
 		l2 = new JLabel("Number of spades in pile : " + nbrofSpades);
 		add(l1);
 		add(l2);
-		setPreferredSize(new Dimension(200, 200));
+		setPreferredSize(new Dimension(200, 50));
+		setBackground(new Boardcolor());
+
 		setVisible(true);
 	}
 
