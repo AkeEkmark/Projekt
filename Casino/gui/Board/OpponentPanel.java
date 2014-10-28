@@ -1,18 +1,18 @@
-package gui;
+package gui.Board;
 
-import guicosmetics.BackCardPanel;
-import guicosmetics.Boardcolor;
-import guicosmetics.PanelBorder;
+import gui.Cosmetics.Green;
+import gui.Cosmetics.PanelBorder;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
+import gui.Cosmetics.ColorPanel;
 import javax.swing.JPanel;
 
-public class OpponentPanel extends JPanel {
+public class OpponentPanel extends ColorPanel {
 	private String position;
 
 	public OpponentPanel(String position) {
+		super("Green");
 
 		setBorder(new PanelBorder(""));
 		this.position = position;
@@ -23,7 +23,7 @@ public class OpponentPanel extends JPanel {
 			setPreferredSize(new Dimension(150, 336));
 		
 		}
-		setBackground(new Boardcolor());
+		
 		setVisible(true);
 	}
 	public void addCard(){

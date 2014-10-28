@@ -1,7 +1,7 @@
-package gui;
+package gui.StartUp;
 
-import guicosmetics.OrangePanel;
-import guicosmetics.PanelBorder;
+import gui.Cosmetics.ColorPanel;
+import gui.Cosmetics.PanelBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,12 +16,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class StartPanel extends OrangePanel {
+public class StartPanel extends ColorPanel {
 	private JButton startbtn;
 	 
 ImageIcon icon = new ImageIcon ("Cosmetics/startknappsfanskapet.png");
 
 	public StartPanel() {
+		super("Orange");
 		startbtn = new JButton();
 		startbtn.setIcon(icon);
 		startbtn.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));

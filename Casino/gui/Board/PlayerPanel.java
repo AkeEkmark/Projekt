@@ -1,10 +1,8 @@
-package gui;
+package gui.Board;
 
-import guicosmetics.Boardcolor;
-import guicosmetics.FrontCardPanel;
-import guicosmetics.PanelBorder;
-import guicosmetics.ProgressPanel;
-
+import gui.Cosmetics.Green;
+import gui.Cosmetics.PanelBorder;
+import gui.Cosmetics.ColorPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,14 +12,15 @@ import javax.swing.JPanel;
 
 import model.Card;
 
-public class PlayerPanel extends JPanel{
+public class PlayerPanel extends ColorPanel{
 	private ProgressPanel progressPanel;
 	
 	public PlayerPanel() {
+		super("Green");
 		setLayout(new BorderLayout());
 		progressPanel = new ProgressPanel();
 		setPreferredSize(new Dimension(200, 150));
-		setBackground(new Boardcolor());
+		
 		setBorder(new PanelBorder(""));
 		add(progressPanel, BorderLayout.NORTH);
 		setVisible(true);

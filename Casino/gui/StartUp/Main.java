@@ -1,4 +1,6 @@
-package gui;
+package gui.StartUp;
+
+import gui.Board.Gui;
 
 public class Main {
 
@@ -8,7 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Gui gui = new Gui();
-		StartUpMenu startUpMenu = new StartUpMenu();
+		StartUpFrame startUpMenu = new StartUpFrame();
 	
 
 	}

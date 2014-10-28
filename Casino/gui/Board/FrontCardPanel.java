@@ -1,4 +1,4 @@
-package guicosmetics;
+package gui.Board;
 
 import java.awt.image.BufferedImage;
 

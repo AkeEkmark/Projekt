@@ -1,4 +1,6 @@
-package guicosmetics;
+package gui.Board;
+
+import gui.Cosmetics.Green;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -21,7 +23,7 @@ public class ProgressPanel extends JPanel {
 		add(l1);
 		add(l2);
 		setPreferredSize(new Dimension(200, 50));
-		setBackground(new Boardcolor());
+		setBackground(new Green());
 
 		setVisible(true);
 	}

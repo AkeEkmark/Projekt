@@ -1,4 +1,4 @@
-package guicosmetics;
+package gui.Cosmetics;
 
 import java.awt.Color;
 
