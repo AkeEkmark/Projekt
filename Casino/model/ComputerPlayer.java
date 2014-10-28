@@ -12,4 +12,8 @@ public class ComputerPlayer extends Player {
 		super.cardsInPile = new ArrayList<Card>();
 		super.cardsOnHand = new ArrayList<Card>();
 	}
+	public int getDifficulty() {
+		return difficulty;
+	}
+	
 }

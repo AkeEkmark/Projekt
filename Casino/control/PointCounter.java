@@ -11,9 +11,9 @@ import model.Card.Value;
 import model.Player;
 
 public class PointCounter {
-	private Board board;
-	public PointCounter(Board board) {
-		this.board = board;
+	private BoardHandler boardHandler;
+	public PointCounter(BoardHandler boardHandler) {
+		this.boardHandler = boardHandler;
 	}
 	public void calculatePoints(ArrayList<Card> cards, Player player) {
 		int points = 0;
@@ -28,7 +28,7 @@ public class PointCounter {
 				points++;
 			}
 		}
-		if (board.getCardsOnBoard().size() == 0) {
+		if (boardHandler.getCardsOnBoard().size() == 0) {
 			points++;
 		}
 		

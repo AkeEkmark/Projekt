@@ -9,24 +9,26 @@ import model.Player;
 
 public class PlayerHandlerImpl implements PlayerHandler {
 	private ArrayList<Player> players;
-	private Board board;
-	public PlayerHandlerImpl(int nbrOfOpponents, int difficulty, Board board) {
+	private BoardHandler board;
+	public PlayerHandlerImpl(int nbrOfOpponents, int difficulty, BoardHandler boardHandler) {
 		players = new ArrayList<Player>();
 		
 	}
 	@Override
 	public void createHumanPlayer(String name, int position) {
 		Player player = new HumanPlayer(name, position);
-		player.setBoard(board);
+		player.setBoard(board.getBoard());
 		players.add(player);
+		
 
 	}
 
 	@Override
 	public void createComputerPlayer(String name, int position, int difficulty) {
 		Player player = new ComputerPlayer(name, position, difficulty);
-		player.setBoard(board);
+		player.setBoard(board.getBoard());
 		players.add(player);
+		
 
 	}
 	@Override
