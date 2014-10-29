@@ -1,5 +1,7 @@
 package gui.Board;
 
+import gui.Cosmetics.ColorPanel;
+
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,13 +15,14 @@ import javax.swing.JPanel;
 
 import model.Card;
 
-public class BackCardPanel extends JPanel {
+public class BackCardPanel extends ColorPanel {
 	private String position;
 	private BufferedImage icon;
 	private BufferedImage iconR;
     private JLabel back;
     private JLabel backR;
 	public BackCardPanel(String position ) {
+		super ("Green");
 	    try{
 	    	icon = ImageIO.read(new File("Cards/back.png"));
 	    }catch (IOException e){

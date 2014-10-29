@@ -17,12 +17,12 @@ public class PlayerPanel extends ColorPanel{
 	
 	public PlayerPanel() {
 		super("Green");
-		setLayout(new BorderLayout());
+		//setLayout(new BorderLayout());
 		progressPanel = new ProgressPanel();
 		setPreferredSize(new Dimension(200, 150));
 		
 		setBorder(new PanelBorder(""));
-		add(progressPanel, BorderLayout.NORTH);
+		add(progressPanel);
 		setVisible(true);
 	}
 	public void addCard(Card card){

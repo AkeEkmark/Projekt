@@ -2,6 +2,7 @@ package gui.Board;
 
 import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.Green;
+import gui.Cosmetics.PanelBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,18 +14,22 @@ import model.Card;
 
 public class BoardPanel extends ColorPanel {
 	private ScoreboardPanel sbp;
+	private JPanel emptyslot;
 
-	public BoardPanel() {		//mittenruta grön
+	public BoardPanel() { // mittenruta grï¿½n
 		super("Green");
-		sbp = new ScoreboardPanel();
+		// sbp = new ScoreboardPanel();
 		setPreferredSize(new Dimension(600, 400));
-		
-		add(sbp);
+		emptyslot = new ColorPanel("Green");
+		emptyslot.setPreferredSize(new Dimension(84, 130));
+		emptyslot.setBorder(new PanelBorder("Throw Card"));
+		add(emptyslot);
+		// add(sbp);
 		setVisible(true);
 	}
 
 	public void addCard(Card card) {
-
+		add(new FrontCardPanel(card));
 	}
 
 }
