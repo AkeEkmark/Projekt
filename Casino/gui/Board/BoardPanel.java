@@ -29,7 +29,7 @@ public class BoardPanel extends ColorPanel {
 	}
 
 	public void addCard(Card card) {
-		add(new FrontCardPanel(card));
+		add(new FrontCardPanel(card, null));
 	}
 
 }

@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 import model.Card;
 
-public class PlayerPanel extends ColorPanel{
+public class PlayerPanel extends ColorPanel {
 	private ProgressPanel progressPanel;
 	
 	public PlayerPanel() {
@@ -26,6 +26,6 @@ public class PlayerPanel extends ColorPanel{
 		setVisible(true);
 	}
 	public void addCard(Card card){
-		add(new FrontCardPanel(card));
+		add(new FrontCardPanel(card, this));
 }
 }

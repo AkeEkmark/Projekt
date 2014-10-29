@@ -22,8 +22,10 @@ public class FrontCardPanel extends ColorPanel implements MouseListener {
 	private Card card;
 	private BufferedImage icon;
 	private JLabel l;
-	public FrontCardPanel(Card card) {
+	private PlayerPanel playerpanel;
+	public FrontCardPanel(Card card, PlayerPanel playerPanel) {
 		super ("Green");
+		this.playerpanel = playerPanel;
 		addMouseListener(this);
 		this.card = card;
 		setPreferredSize(new Dimension(84, 130));
@@ -38,7 +40,8 @@ public class FrontCardPanel extends ColorPanel implements MouseListener {
 		
 	}
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
+		
 		if(getBackground()!= Color.ORANGE){
 		setBackground(Color.ORANGE);
 	} else { 
