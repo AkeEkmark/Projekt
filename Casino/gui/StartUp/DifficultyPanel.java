@@ -1,4 +1,7 @@
-package gui;
+package gui.StartUp;
+
+import gui.Cosmetics.ColorPanel;
+import gui.Cosmetics.PanelBorder;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class DifficultyPanel extends OrangePanel {
+public class DifficultyPanel extends ColorPanel {
 	private JRadioButton c1;
 	private JRadioButton c2;
 	private JRadioButton c3;
@@ -18,6 +21,7 @@ public class DifficultyPanel extends OrangePanel {
 	private ButtonGroup btngroup;
 
 	public DifficultyPanel() {
+		super("Orange");
 		c1 = new JButtonBackground("Beginner");
 		c2 = new JButtonBackground("Normal");
 		c3 = new JButtonBackground("Advanced");

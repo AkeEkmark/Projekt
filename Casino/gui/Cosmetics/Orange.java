@@ -1,10 +1,10 @@
-package gui;
+package gui.Cosmetics;
 
 import java.awt.Color;
 
-public class Metallic extends Color {
+public class Orange extends Color {
 
-	public Metallic() {
+	public Orange() {
 		super(255, 128, 0);
 		// TODO Auto-generated constructor stub
 	}

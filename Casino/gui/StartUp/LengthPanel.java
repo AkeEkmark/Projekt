@@ -1,4 +1,7 @@
-package gui;
+package gui.StartUp;
+
+import gui.Cosmetics.ColorPanel;
+import gui.Cosmetics.PanelBorder;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
-public class LengthPanel extends OrangePanel{
+public class LengthPanel extends ColorPanel{
 	private JRadioButton d1;
 	private JRadioButton d2;
 	private JRadioButton d3;
@@ -26,6 +29,7 @@ public class LengthPanel extends OrangePanel{
 	private JPanel panel2;
 	private ButtonGroup btngroup;
 	public LengthPanel() {
+		super("Orange");
 		d1 = new JButtonBackground("One deck");
 		d2 = new JButtonBackground("Two decks");
 		d3 = new JButtonBackground("Three decks");
@@ -34,8 +38,8 @@ public class LengthPanel extends OrangePanel{
 		p3 = new JButtonBackground("30 points");
 		//i = new JLabel("Victory Condition");
 		
-		panel1 = new OrangePanel();
-		panel2 = new OrangePanel();
+		panel1 = new ColorPanel("Orange");
+		panel2 = new ColorPanel("Orange");
 
 		
 		panel1.setPreferredSize(new Dimension(100, 100));

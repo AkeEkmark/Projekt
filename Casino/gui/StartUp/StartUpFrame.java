@@ -1,4 +1,4 @@
-package gui;
+package gui.StartUp;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.*;
 
-public class StartUpMenu extends JFrame {
+public class StartUpFrame extends JFrame {
 
 	private StartPanel startPanel;
 	private DifficultyPanel difficultyPanel;
@@ -14,7 +14,7 @@ public class StartUpMenu extends JFrame {
 	private LengthPanel lengthPanel;
 	private IntroPanel introPanel;
 
-	public StartUpMenu() {
+	public StartUpFrame() {
 		startPanel = new StartPanel();
 		difficultyPanel = new DifficultyPanel();
 		nbrPlayersPanel = new NbrPlayersPanel();
@@ -27,7 +27,7 @@ public class StartUpMenu extends JFrame {
 		add(introPanel, BorderLayout.NORTH);
 		setName("Initial Setup");
 		setLocationRelativeTo(null);
-		setPreferredSize(new Dimension(600, 275));
+		setPreferredSize(new Dimension(600, 300));
 		pack();
 
 		setVisible(true);
