@@ -3,10 +3,12 @@ package gui.StartUp;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class StartUpFrame extends JFrame {
+public class StartUpFrame extends JFrame implements ActionListener {
 
 	private StartPanel startPanel;
 	private DifficultyPanel difficultyPanel;
@@ -15,7 +17,7 @@ public class StartUpFrame extends JFrame {
 	private IntroPanel introPanel;
 
 	public StartUpFrame() {
-		startPanel = new StartPanel();
+		startPanel = new StartPanel(this);
 		difficultyPanel = new DifficultyPanel();
 		nbrPlayersPanel = new NbrPlayersPanel();
 		lengthPanel = new LengthPanel();
@@ -34,4 +36,28 @@ public class StartUpFrame extends JFrame {
 
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == startPanel.getStart()) {
+			int h = nbrPlayersPanel.getBtn();
+			int y = lengthPanel.getBtn();
+			int x = difficultyPanel.getBtn();
+			if (x == 0) {
+				JOptionPane.showMessageDialog(this,
+						"You need to choose difficulty", "Do you want a challenge?",
+						JOptionPane.WARNING_MESSAGE);
+			} else if (y == 0) {
+				JOptionPane.showMessageDialog(this,
+						"You need to choose victory condition", "How far are you willing to go?",
+						JOptionPane.WARNING_MESSAGE);
+			} else if (h == 0) {
+				JOptionPane.showMessageDialog(this,
+						"You need to choose number of players", "2,3,4 it's up to you",
+						JOptionPane.WARNING_MESSAGE);
+			} else {
+
+				System.out.println(x + " " + y + " " + h);
+			}
+		}
+	}
 }
