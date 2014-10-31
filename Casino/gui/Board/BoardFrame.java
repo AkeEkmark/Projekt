@@ -33,7 +33,7 @@ public class BoardFrame extends JFrame{
 		
 	}
 	public void createPanels() {
-		boardPanel = new BoardPanel();
+		boardPanel = new BoardPanel(gameCreator);
 		add(boardPanel, BorderLayout.CENTER);
 		player1 = new PlayerPanel(gameCreator.getPlayerHandler().getPlayers().get(0));
 		players.add(player1);

@@ -70,4 +70,9 @@ public class GameCreator {
 	public BoardFrame getBoardFrame() {
 		return boardFrame;
 	}
+
+	public void endPlayerTurn() {
+		System.out.println("your turn has ended");
+		
+	}
 }

@@ -35,7 +35,7 @@ public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 		setVisible(true);
 	}
 	public void addCard(Card card){
-		cardPanel = new FrontCardPanel(card);
+		cardPanel = new FrontCardPanel(card, this);
 		cardPanels.add(cardPanel);
 		add(cardPanel);
 		
@@ -49,7 +49,7 @@ public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 		for (FrontCardPanel cardPanel : cardPanels) {
 			if (e.getComponent() == cardPanel) {
 				if (!cardPanel.getCard().isSelected()) {
-					cardPanel.setOrange();
+					cardPanel.setBlue();
 					
 				}
 				else {

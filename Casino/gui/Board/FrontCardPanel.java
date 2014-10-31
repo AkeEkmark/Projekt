@@ -22,12 +22,13 @@ public class FrontCardPanel extends ColorPanel {
 	private Card card;
 	private BufferedImage icon;
 	private JLabel l;
+	private MouseListener listener;
 	
 	
-	public FrontCardPanel(Card card) {
+	public FrontCardPanel(Card card, MouseListener listener) {
 		super ("Green");
-		
-		
+		this.listener = listener;
+		addMouseListener(listener);
 		this.card = card;
 		setPreferredSize(new Dimension(84, 130));
 		try{
@@ -40,8 +41,8 @@ public class FrontCardPanel extends ColorPanel {
 		setVisible(true);
 		
 	}
-	public void setOrange() {
-		setBackground(Color.ORANGE);
+	public void setBlue() {
+		setBackground(Color.MAGENTA);
 		card.setSelected();
 	}
 	public void setGreen() {

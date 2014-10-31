@@ -7,32 +7,49 @@ import gui.Cosmetics.PanelBorder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
+import control.GameCreator;
+import control.GameHandler;
 import model.Card;
 
-public class BoardPanel extends ColorPanel {
+public class BoardPanel extends ColorPanel implements MouseListener {
 	private ScoreboardPanel sbp;
 	private JPanel emptyslot;
 	private ArrayList<FrontCardPanel> frontPanels;
-
-	public BoardPanel() { // mittenruta gr�n
+	private InputMap inputMap;
+	private ActionMap actionMap;
+	private GameCreator gameCreator;
+	public BoardPanel(GameCreator gameCreator) { // mittenruta gr�n
 		super("Green");
 		// sbp = new ScoreboardPanel();
+		this.gameCreator = gameCreator;
 		frontPanels = new ArrayList<FrontCardPanel>();
 		setPreferredSize(new Dimension(600, 400));
-		emptyslot = new ColorPanel("Green");
-		emptyslot.setPreferredSize(new Dimension(84, 130));
-		emptyslot.setBorder(new PanelBorder("Throw Card"));
-		add(emptyslot);
+		inputMap = getInputMap();
+		actionMap = getActionMap();
+		inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "Space");
+		actionMap.put("Space", new SpaceAction());
+//		emptyslot = new ColorPanel("Green");
+//		emptyslot.setPreferredSize(new Dimension(84, 130));
+//		emptyslot.setBorder(new PanelBorder("Throw Card"));
+//		add(emptyslot);
 		// add(sbp);
 		setVisible(true);
 	}
 
 	public void addCard(Card card) {
-		FrontCardPanel front = new FrontCardPanel(card);
+		FrontCardPanel front = new FrontCardPanel(card, this);
 		add(front);
 		frontPanels.add(front);
 	}
@@ -45,4 +62,61 @@ public class BoardPanel extends ColorPanel {
 		
 	}
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		for (FrontCardPanel cardPanel : frontPanels) {
+			if (e.getComponent() == cardPanel) {
+				if (!cardPanel.getCard().isSelected()) {
+					cardPanel.setBlue();
+					
+				}
+				else {
+					cardPanel.setGreen();
+				}
+			}
+//			else {
+//				if (cardPanel.getCard().isSelected()){
+//					cardPanel.setGreen();
+//				}
+//			}
+		}
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	public class SpaceAction extends AbstractAction {
+		
+		
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			gameCreator.endPlayerTurn();
+			
+		}
+		
+	}
+
 }
+

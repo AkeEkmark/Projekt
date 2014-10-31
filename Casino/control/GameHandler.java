@@ -12,8 +12,13 @@ public class GameHandler {
 		gui = new Gui(gameCreator);
 		gameCreator.setBoardFrame(gui.getBoardFrame());
 		gameCreator.createHandlers();
-		gameCreator.getDeckHandler().shuffleDeck();
 		gui.getBoardFrame().createPanels();
+		setUpGame();
+		
+	}
+
+	private void setUpGame() {
+		gameCreator.getDeckHandler().shuffleDeck();
 		for (int i = 0; i < 4; i++) {
 			gameCreator.getBoardHandler().addCardtoBoard(gameCreator.getDeckHandler().getCard(0));
 			for (Player player : gameCreator.getPlayerHandler().getPlayers()) {
