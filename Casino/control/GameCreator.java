@@ -1,5 +1,7 @@
 package control;
 
+import gui.Board.BoardFrame;
+
 public class GameCreator {
 	private BoardHandler boardHandler;
 	private DeckHandler deckHandler;
@@ -10,14 +12,19 @@ public class GameCreator {
 	private int nbrOfOpponents;
 	private int difficulty;
 	private int gameType;
+	private BoardFrame boardFrame;
 	
-	public GameCreator(int nbrOfOpponents, int difficulty, int gameType ) {
+	public GameCreator(int nbrOfOpponents, int difficulty, int gameType) {
 		this.nbrOfOpponents = nbrOfOpponents;
 		this.difficulty = difficulty;
 		this.gameType = gameType;
+		
+	}
+
+	public void createHandlers() {
 		deckHandler = new DeckHandlerImpl();
-		boardHandler = new BoardHandlerImpl();
-		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty, getBoardHandler());
+		boardHandler = new BoardHandlerImpl(getBoardFrame());
+		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty, getBoardHandler(), getBoardFrame());
 		playerMoves = new PlayerMovesImpl(getPlayerHandler(), getBoardHandler());
 		pointCounter = new PointCounter(getBoardHandler());
 		aiControl = new AiControl(getBoardHandler(), getPlayerMoves());
@@ -56,5 +63,11 @@ public class GameCreator {
 
 	public int getGameType() {
 		return gameType;
+	}
+	public void setBoardFrame(BoardFrame boardFrame) {
+		this.boardFrame = boardFrame;
+	}
+	public BoardFrame getBoardFrame() {
+		return boardFrame;
 	}
 }

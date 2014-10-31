@@ -15,15 +15,17 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import model.Card;
+import model.Player;
 
-public class PlayerPanel extends ColorPanel implements MouseListener{
+public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 	private ProgressPanel progressPanel;
 	private ArrayList<FrontCardPanel> cardPanels;
 	private FrontCardPanel cardPanel;
-	
-	public PlayerPanel() {
+	private Player player;
+	public PlayerPanel(Player player) {
 		super("Green");
 		//setLayout(new BorderLayout());
+		this.player = player;
 		cardPanels = new ArrayList<FrontCardPanel>();
 		progressPanel = new ProgressPanel();
 		setPreferredSize(new Dimension(200, 150));
@@ -37,7 +39,10 @@ public class PlayerPanel extends ColorPanel implements MouseListener{
 		cardPanels.add(cardPanel);
 		add(cardPanel);
 		
-}
+	}
+	public Player getPlayer() {
+		return player;
+	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		

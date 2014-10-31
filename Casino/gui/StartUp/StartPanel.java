@@ -20,8 +20,8 @@ import javax.swing.SwingConstants;
 
 public class StartPanel extends ColorPanel{
 	private JButton startbtn;
-	 private StartUpFrame suf;
-ImageIcon icon = new ImageIcon ("Cosmetics/startknappsfanskapet.png");
+	private StartUpFrame suf;
+	ImageIcon icon = new ImageIcon ("Cosmetics/startknappsfanskapet.png");
 
 	public StartPanel(StartUpFrame suf) {
 		super("Orange");

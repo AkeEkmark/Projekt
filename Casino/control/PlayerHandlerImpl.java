@@ -1,23 +1,33 @@
 package control;
 
+import gui.Board.BoardFrame;
+
 import java.util.ArrayList;
 
 import model.Board;
+import model.Card;
 import model.ComputerPlayer;
 import model.HumanPlayer;
 import model.Player;
 
 public class PlayerHandlerImpl implements PlayerHandler {
 	private ArrayList<Player> players;
-	private BoardHandler board;
-	public PlayerHandlerImpl(int nbrOfOpponents, int difficulty, BoardHandler boardHandler) {
+	private BoardHandler boardHandler;
+	private BoardFrame boardFrame;
+	public PlayerHandlerImpl(int nbrOfOpponents, int difficulty, BoardHandler boardHandler, BoardFrame boardFrame) {
 		players = new ArrayList<Player>();
-		
+		this.boardHandler = boardHandler;
+		this.boardFrame = boardFrame;
+		createHumanPlayer("Player", 0);
+		for (int i = 0; i < nbrOfOpponents; i++) {
+			String Computername = "Computer"+(i+1);
+			createComputerPlayer(Computername, i, difficulty);
+		}
 	}
 	@Override
 	public void createHumanPlayer(String name, int position) {
 		Player player = new HumanPlayer(name, position);
-		player.setBoard(board.getBoard());
+		player.setBoard(boardHandler.getBoard());
 		players.add(player);
 		
 
@@ -26,7 +36,7 @@ public class PlayerHandlerImpl implements PlayerHandler {
 	@Override
 	public void createComputerPlayer(String name, int position, int difficulty) {
 		Player player = new ComputerPlayer(name, position, difficulty);
-		player.setBoard(board.getBoard());
+		player.setBoard(boardHandler.getBoard());
 		players.add(player);
 		
 
@@ -34,6 +44,11 @@ public class PlayerHandlerImpl implements PlayerHandler {
 	@Override
 	public ArrayList<Player> getPlayers() {
 		return players;
+	}
+	@Override
+	public void dealCardToPlayer(Player player, Card card) {
+		player.dealCardToHand(card);
+		boardFrame.dealCardToPlayer(player,card);
 	}
 
 }

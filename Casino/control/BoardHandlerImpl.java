@@ -1,5 +1,7 @@
 package control;
 
+import gui.Board.BoardFrame;
+
 import java.util.ArrayList;
 
 import model.Board;
@@ -7,9 +9,11 @@ import model.Card;
 
 public class BoardHandlerImpl implements BoardHandler {
 	private Board board;
+	private BoardFrame boardFrame;
 	
-	public BoardHandlerImpl() {
+	public BoardHandlerImpl(BoardFrame boardFrame) {
 		board = new Board();
+		this.boardFrame = boardFrame;
 	}
 	
 	@Override
@@ -21,12 +25,14 @@ public class BoardHandlerImpl implements BoardHandler {
 	@Override
 	public void addCardtoBoard(Card card) {
 		board.addCardToBoard(card);
+		boardFrame.addCardToBoard(card);
 
 	}
 
 	@Override
 	public void removeCardFromBoard(Card card) {
 		board.removeCardFromBoard(card);
+		boardFrame.removeCardFromBoard(card);
 
 	}
 	@Override

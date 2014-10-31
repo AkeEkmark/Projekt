@@ -41,13 +41,13 @@ public class DifficultyPanel extends ColorPanel {
 	}
 	public int getBtn(){
 		if (c1.isSelected()){
-			return 2;				
+			return 1;				
 		}
 		if(c2.isSelected()){
-			return 3;
+			return 2;
 		}
 		if(c3.isSelected()){
-			return 4;
+			return 3;
 		}
 		return 0;
 	}

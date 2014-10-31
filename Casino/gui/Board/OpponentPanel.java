@@ -5,15 +5,20 @@ import gui.Cosmetics.PanelBorder;
 
 import java.awt.Color;
 import java.awt.Dimension;
+
 import gui.Cosmetics.ColorPanel;
+
 import javax.swing.JPanel;
 
-public class OpponentPanel extends ColorPanel {
+import model.Card;
+import model.Player;
+
+public class OpponentPanel extends ColorPanel implements Players {
 	private String position;
-
-	public OpponentPanel(String position) {
+	private Player player;
+	public OpponentPanel(String position, Player player) {
 		super("Green");
-
+		this.player = player;
 		setBorder(new PanelBorder(""));
 		this.position = position;
 		if (position == "NORTH"){
@@ -26,7 +31,10 @@ public class OpponentPanel extends ColorPanel {
 		
 		setVisible(true);
 	}
-	public void addCard(){
+	public void addCard(Card card){
 		add(new BackCardPanel(position));
+	}
+	public Player getPlayer() {
+		return player;
 	}
 }

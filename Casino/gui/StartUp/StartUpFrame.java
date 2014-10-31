@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import control.GameHandler;
+
 public class StartUpFrame extends JFrame implements ActionListener {
 
 	private StartPanel startPanel;
@@ -15,6 +17,7 @@ public class StartUpFrame extends JFrame implements ActionListener {
 	private NbrPlayersPanel nbrPlayersPanel;
 	private LengthPanel lengthPanel;
 	private IntroPanel introPanel;
+	private GameHandler gameHandler;
 
 	public StartUpFrame() {
 		startPanel = new StartPanel(this);
@@ -55,8 +58,8 @@ public class StartUpFrame extends JFrame implements ActionListener {
 						"You need to choose number of players", "2,3,4 it's up to you",
 						JOptionPane.WARNING_MESSAGE);
 			} else {
-
-				System.out.println(x + " " + y + " " + h);
+				gameHandler = new GameHandler(h, x, y);
+				this.setVisible(false);
 			}
 		}
 	}

@@ -1,13 +1,20 @@
 package gui.Board;
-import javax.swing.*;
+
+
+
+import control.GameCreator;
+
 
 public class Gui {
 	private BoardFrame boardframe;
-	public Gui(){
-		boardframe = new BoardFrame();
+	public Gui(GameCreator gameCreator){
+		boardframe = new BoardFrame(gameCreator);
 		
 		
 		 
+	}
+	public BoardFrame getBoardFrame() {
+		return boardframe;
 	}
 	
 	
