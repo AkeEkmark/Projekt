@@ -18,15 +18,16 @@ import javax.swing.JPanel;
 
 import model.Card;
 
-public class FrontCardPanel extends ColorPanel implements MouseListener {
+public class FrontCardPanel extends ColorPanel {
 	private Card card;
 	private BufferedImage icon;
 	private JLabel l;
-	private PlayerPanel playerpanel;
-	public FrontCardPanel(Card card, PlayerPanel playerPanel) {
+	
+	
+	public FrontCardPanel(Card card) {
 		super ("Green");
-		this.playerpanel = playerPanel;
-		addMouseListener(this);
+		
+		
 		this.card = card;
 		setPreferredSize(new Dimension(84, 130));
 		try{
@@ -39,35 +40,17 @@ public class FrontCardPanel extends ColorPanel implements MouseListener {
 		setVisible(true);
 		
 	}
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-		if(getBackground()!= Color.ORANGE){
+	public void setOrange() {
 		setBackground(Color.ORANGE);
-	} else { 
+		card.setSelected();
+	}
+	public void setGreen() {
 		setBackground(new Green());
+		card.setNotSelected();
 	}
-		
+	public Card getCard() {
+		return card;
 	}
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

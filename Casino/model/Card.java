@@ -6,11 +6,13 @@ public class Card {
 	private Suit suit;
 	private Value value;
 	private String fileName;
+	private boolean isSelected;
 	
 	public Card(Suit suit, Value value, String fileName) {
 		this.suit = suit;
 		this.value = value;
 		this.fileName = fileName;
+		this.isSelected = false;
 	}
 
 	public Suit getSuit() {
@@ -25,5 +27,14 @@ public class Card {
 	}
 	public String toString() {
 		return "Card of Suit: " +suit +" and Value: " +value;
+	}
+	public boolean isSelected() {
+		return isSelected;
+	}
+	public void setSelected() {
+		isSelected = true;
+	}
+	public void setNotSelected() {
+		isSelected = false;
 	}
 }
