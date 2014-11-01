@@ -27,13 +27,13 @@ public class BoardFrame extends JFrame{
 		players = new ArrayList<Players>();
 		setLayout(new BorderLayout());
 		
-		setPreferredSize(new Dimension(800, 700));
+		setPreferredSize(new Dimension(900, 800));
 		pack();
 		setVisible(true);
 		
 	}
 	public void createPanels() {
-		boardPanel = new BoardPanel(gameCreator);
+		boardPanel = new BoardPanel(gameCreator, this);
 		add(boardPanel, BorderLayout.CENTER);
 		player1 = new PlayerPanel(gameCreator.getPlayerHandler().getPlayers().get(0));
 		players.add(player1);
@@ -53,6 +53,7 @@ public class BoardFrame extends JFrame{
 			players.add(player4);
 			add(player4, BorderLayout.WEST);
 		}
+		//boardPanel.addScoreBoard();
 	}
 	public PlayerPanel getPlayer1() {
 		return player1;

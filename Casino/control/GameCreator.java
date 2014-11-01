@@ -1,5 +1,9 @@
 package control;
 
+import java.util.ArrayList;
+
+import model.Card;
+import model.Player;
 import gui.Board.BoardFrame;
 
 public class GameCreator {
@@ -25,9 +29,10 @@ public class GameCreator {
 		deckHandler = new DeckHandlerImpl();
 		boardHandler = new BoardHandlerImpl(getBoardFrame());
 		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty, getBoardHandler(), getBoardFrame());
-		playerMoves = new PlayerMovesImpl(getPlayerHandler(), getBoardHandler());
 		pointCounter = new PointCounter(getBoardHandler());
+		playerMoves = new PlayerMovesImpl(getPlayerHandler(), getBoardHandler(), getPointCounter());
 		aiControl = new AiControl(getBoardHandler(), getPlayerMoves());
+		
 	}
 
 	public BoardHandler getBoardHandler() {
@@ -71,8 +76,27 @@ public class GameCreator {
 		return boardFrame;
 	}
 
-	public void endPlayerTurn() {
-		System.out.println("your turn has ended");
+	public boolean endPlayerTurn(Player player) {
+		ArrayList<Card> cardsToTake = new ArrayList<Card>();
+		Card cardFromHand = null;
+		boolean move = false;
+		for (Card card : boardHandler.getCardsOnBoard()) {
+			if (card.isSelected()) {
+				cardsToTake.add(card);
+			}
+		}
+		for (Card card : player.getCardsOnHand()) {
+			if (card.isSelected()) {
+				cardFromHand = card;
+			}
+		}
+		if ((cardsToTake.isEmpty()) && (cardFromHand != null)) {
+			move = playerMoves.addCardToBoard(cardFromHand, player);
+		}
+		else if ((!cardsToTake.isEmpty()) && (cardFromHand != null)){
+			move = playerMoves.takeCardFromBoard(cardFromHand, cardsToTake, player);
+		}
 		
+		return move;
 	}
 }

@@ -39,6 +39,7 @@ public abstract class Player {
 	}
 	public void addCardToBoard(Card cardOnHand) {
 		board.addCardToBoard(cardOnHand);
+		removeCardFromHand(cardOnHand);
 	}
 	public int getPoints() {
 		return points;

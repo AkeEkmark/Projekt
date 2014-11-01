@@ -18,10 +18,10 @@ public class PlayerHandlerImpl implements PlayerHandler {
 		players = new ArrayList<Player>();
 		this.boardHandler = boardHandler;
 		this.boardFrame = boardFrame;
-		createHumanPlayer("Player", 0);
+		createHumanPlayer("Player", 1);
 		for (int i = 0; i < nbrOfOpponents; i++) {
 			String Computername = "Computer"+(i+1);
-			createComputerPlayer(Computername, i, difficulty);
+			createComputerPlayer(Computername, i+2, difficulty);
 		}
 	}
 	@Override

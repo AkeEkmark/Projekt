@@ -1,15 +1,15 @@
 package gui.Board;
 
-import gui.Cosmetics.Green;
+
 import gui.Cosmetics.PanelBorder;
 
-import java.awt.Color;
+
 import java.awt.Dimension;
 import java.util.ArrayList;
 
 import gui.Cosmetics.ColorPanel;
 
-import javax.swing.JPanel;
+
 
 import model.Card;
 import model.Player;
@@ -39,10 +39,14 @@ public class OpponentPanel extends ColorPanel implements Players {
 		add(panel);
 		cards.add(panel);
 	}
-	public void removeCard() {
+	@Override
+	public void removeCard(Card card) {
 		cards.remove(0);
+		
 	}
+	
 	public Player getPlayer() {
 		return player;
 	}
+	
 }

@@ -12,10 +12,10 @@ public class ScoreboardPanel extends JPanel {
 	private JLabel l2;
 	private JLabel l3;
 	private JLabel l4;
-	private int player1Score;
-	private int player2Score;
-	private int player3Score;
-	private int player4Score;
+	private int player1Score = 0;
+	private int player2Score = 0;
+	private int player3Score = 0;
+	private int player4Score = 0;
 
 	public ScoreboardPanel() {
 		l1 = new JLabel("");
@@ -31,31 +31,33 @@ public class ScoreboardPanel extends JPanel {
 		setVisible(true);
 	}
 
-	public void setPlayerScore(int playerScore, int position) {
+	public void addPlayerScore(int playerScore, int position) {
 		if (position == 1){
-			player1Score = playerScore;
+			player1Score += playerScore;
 		}else if (position == 2){
-			player2Score = playerScore;
+			player2Score += playerScore;
 		}else if (position == 3){
-			player3Score = playerScore;
+			player3Score += playerScore;
 		}else if (position == 4){
-			player4Score = playerScore;
+			player4Score += playerScore;
 		}
 	}
 
 	
 
 	public void createLabel(String playerName, int position ){
-	if (position == 1){
-		l1.setText(playerName + " : " +player1Score);
-	}else if (position == 2){
-		l2.setText(playerName + " : " +player2Score);
-	}else if (position == 3){
-		l3.setText(playerName + " : " +player3Score);
-	}else if (position == 4){
-		l4.setText(playerName + " : " +player4Score);
-	}
-		
+		if (position == 1){
+			l1.setText(playerName + " : " +player1Score);
+		}
+		else if (position == 2){
+			l2.setText(playerName + " : " +player2Score);
+		}
+		else if (position == 3){
+			l3.setText(playerName + " : " +player3Score);
+		}
+		else if (position == 4){
+			l4.setText(playerName + " : " +player4Score);
+		}
 	}
 
 	}

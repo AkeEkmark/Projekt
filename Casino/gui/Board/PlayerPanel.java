@@ -40,8 +40,27 @@ public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 		add(cardPanel);
 		
 	}
+	@Override
+	public void removeCard(Card card) {
+		ArrayList<FrontCardPanel> cardPanelsToRemove = new ArrayList<FrontCardPanel>();
+		
+		for (FrontCardPanel front : cardPanels) {
+			if (front.getCard() == card){
+				cardPanelsToRemove.add(front);
+			}		
+		}
+		for (FrontCardPanel front : cardPanelsToRemove) {
+			cardPanels.remove(front);
+			remove(front);
+		}
+		
+		
+	}
 	public Player getPlayer() {
 		return player;
+	}
+	public ArrayList<FrontCardPanel> getCardPanels() {
+		return cardPanels;
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -84,4 +103,5 @@ public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 		// TODO Auto-generated method stub
 		
 	}
+
 }

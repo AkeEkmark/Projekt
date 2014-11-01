@@ -48,7 +48,9 @@ public class AiControl {
 			}
 			if (avaliableMoves.size() == 0) {
 				cardToAddtoBoard = player.getCardsOnHand().get(random.nextInt(player.getCardsOnHand().size()));
-				playerMoves.addCardToBoard(cardToAddtoBoard, player);
+				if (playerMoves.addCardToBoard(cardToAddtoBoard, player)) {
+					
+				}
 			}
 			
 			else if (avaliableMoves.size() > 0) {
@@ -57,7 +59,9 @@ public class AiControl {
 				for (int i : avaliableMoves.get(rndmIndex).cardsOnBoard) {
 					cardsToTakeFromBoard.add(boardHandler.getCardsOnBoard().get(i));
 				}
-				playerMoves.takeCardFromBoard(cardToTakeCardsWith, cardsToTakeFromBoard, player);
+				if (playerMoves.takeCardFromBoard(cardToTakeCardsWith, cardsToTakeFromBoard, player)) {
+					
+				}
 			}
 			break;
 		case 2:

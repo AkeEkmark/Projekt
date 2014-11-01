@@ -1,5 +1,7 @@
 package control;
 
+import gui.Board.ScoreboardPanel;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,6 +14,7 @@ import model.Player;
 
 public class PointCounter {
 	private BoardHandler boardHandler;
+	private ScoreboardPanel sbp;
 	public PointCounter(BoardHandler boardHandler) {
 		this.boardHandler = boardHandler;
 	}
@@ -37,6 +40,7 @@ public class PointCounter {
 	}
 	private void addPoints(int points, Player player) {
 		player.addPoints(points);
+		sbp.addPlayerScore(points, player.getPosition());
 	}
 	public void endOfDeck(ArrayList<Player> players) {
 		int maxCards;
@@ -82,10 +86,11 @@ public class PointCounter {
 			if (mostCards.contains(player) && (mostSpades.contains(player))) {
 				addPoints(1, player);
 			}
-		}
-			
-		
-	}	
+		}	
+	}
+	public void setScoreBoard(ScoreboardPanel sbp) {
+		this.sbp = sbp;
+	}
 	
 	
 }

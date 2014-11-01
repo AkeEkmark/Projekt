@@ -16,12 +16,14 @@ import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import control.GameCreator;
 import control.GameHandler;
 import model.Card;
+import model.Player;
 
 public class BoardPanel extends ColorPanel implements MouseListener {
 	private ScoreboardPanel sbp;
@@ -30,10 +32,12 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 	private InputMap inputMap;
 	private ActionMap actionMap;
 	private GameCreator gameCreator;
-	public BoardPanel(GameCreator gameCreator) { // mittenruta gr�n
+	private BoardFrame boardFrame;
+	public BoardPanel(GameCreator gameCreator, BoardFrame boardFrame) { // mittenruta gr�n
 		super("Green");
-		// sbp = new ScoreboardPanel();
+		
 		this.gameCreator = gameCreator;
+		this.boardFrame = boardFrame;
 		frontPanels = new ArrayList<FrontCardPanel>();
 		setPreferredSize(new Dimension(600, 400));
 		inputMap = getInputMap();
@@ -44,10 +48,19 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 //		emptyslot.setPreferredSize(new Dimension(84, 130));
 //		emptyslot.setBorder(new PanelBorder("Throw Card"));
 //		add(emptyslot);
-		// add(sbp);
+
 		setVisible(true);
 	}
-
+	public void addScoreBoard() {
+		sbp = new ScoreboardPanel();
+		for (Player player : gameCreator.getPlayerHandler().getPlayers()) {
+			sbp.createLabel(player.getName(), player.getPosition());
+		}
+		
+		boardFrame.getPlayer2().add(sbp);
+		gameCreator.getPointCounter().setScoreBoard(sbp);
+		
+	}
 	public void addCard(Card card) {
 		FrontCardPanel front = new FrontCardPanel(card, this);
 		add(front);
@@ -55,11 +68,24 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 	}
 
 	public void removeCard(Card card) {
+		ArrayList<FrontCardPanel> cardPanelsToRemove = new ArrayList<FrontCardPanel>();
+		
 		for (FrontCardPanel front : frontPanels) {
-			if (front.getCard() == card);
-				remove(front);
+			if (front.getCard() == card){
+				cardPanelsToRemove.add(front);
+			}
+				
+		}
+		for (FrontCardPanel front : cardPanelsToRemove) {
+			frontPanels.remove(front);
+			remove(front);
 		}
 		
+		
+	}
+
+	public ArrayList<FrontCardPanel> getCardPanels() {
+		return frontPanels;
 	}
 
 	@Override
@@ -112,7 +138,45 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			gameCreator.endPlayerTurn();
+			if (!gameCreator.endPlayerTurn(gameCreator.getPlayerHandler().getPlayers().get(0))) {
+				JOptionPane.showMessageDialog(null, "That move is not possible");
+			}
+			else {
+				ArrayList<FrontCardPanel> cardsToRemoveBoard = new ArrayList<FrontCardPanel>();
+				for (FrontCardPanel cardPanel : frontPanels) {
+					if (cardPanel.getCard().isSelected()) {
+						cardsToRemoveBoard.add(cardPanel);		
+					}
+				}
+				for (FrontCardPanel cardPanel : cardsToRemoveBoard) {
+					removeCard(cardPanel.getCard());
+				}
+				
+				ArrayList<FrontCardPanel> cardsToRemovePlayer = new ArrayList<FrontCardPanel>();
+				for (FrontCardPanel cardPanel : boardFrame.getPlayer1().getCardPanels()) {
+					if (cardPanel.getCard().isSelected()) {
+						if (cardPanel.getCard().isSelected()) {
+							cardsToRemovePlayer.add(cardPanel);		
+						}
+					}
+				}
+				if (cardsToRemoveBoard.isEmpty()) {
+					for (FrontCardPanel cardPanel : cardsToRemovePlayer) {
+						cardPanel.getCard().setNotSelected();
+						addCard(cardPanel.getCard());
+						
+					}
+					revalidate();
+				}
+				for (FrontCardPanel cardPanel : cardsToRemovePlayer) {
+					boardFrame.getPlayer1().removeCard(cardPanel.getCard());
+					
+				}
+				repaint();
+				boardFrame.getPlayer1().repaint();
+				
+				
+			}
 			
 		}
 		
