@@ -7,14 +7,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import model.Card;
-
+/**
+ * A panel to display the backside of a card.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class BackCardPanel extends ColorPanel {
 	private String position;
 	private BufferedImage icon;

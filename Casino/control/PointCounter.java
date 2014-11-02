@@ -3,15 +3,17 @@ package control;
 import gui.Board.ScoreboardPanel;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-import model.Board;
 import model.Card;
 import model.Card.Suit;
 import model.Card.Value;
 import model.Player;
-
+/**
+ * A class to calculate points of moves and at the end of the deck.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class PointCounter {
 	private BoardHandler boardHandler;
 	private ScoreboardPanel sbp;

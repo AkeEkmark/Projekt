@@ -9,7 +9,11 @@ import javax.swing.JFrame;
 import model.Card;
 import model.Player;
 import control.GameCreator;
-
+/**
+ * A Frame to keep all the panels of the board.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class BoardFrame extends JFrame{
 	private BoardPanel boardPanel;
 	private PlayerPanel player1;

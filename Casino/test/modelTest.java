@@ -1,10 +1,15 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import model.*;
+import model.Board;
+import model.Card;
+import model.ComputerPlayer;
+import model.Deck;
+import model.HumanPlayer;
+import model.Player;
 
 import org.junit.After;
 import org.junit.Before;

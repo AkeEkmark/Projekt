@@ -4,12 +4,16 @@ import gui.Board.BoardFrame;
 
 import java.util.ArrayList;
 
-import model.Board;
 import model.Card;
 import model.ComputerPlayer;
 import model.HumanPlayer;
 import model.Player;
-
+/**
+ * Implements the interface to control and create players.
+ * Keeps a reference of the players.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class PlayerHandlerImpl implements PlayerHandler {
 	private ArrayList<Player> players;
 	private BoardHandler boardHandler;

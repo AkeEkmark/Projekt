@@ -3,11 +3,12 @@ package gui.StartUp;
 import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.PanelBorder;
 
-import java.awt.Color;
-
-import javax.swing.JPanel;
 import javax.swing.JLabel;
-
+/**
+ * A panel to display the name of the game.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class IntroPanel extends ColorPanel {
 	private JLabel i;
 

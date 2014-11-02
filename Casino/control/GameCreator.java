@@ -1,12 +1,17 @@
 package control;
 
-import java.util.ArrayList;
-
-import control.GameHandler.MonitorObject;
-import model.Card;
-import model.Player;
 import gui.Board.BoardFrame;
 
+import java.util.ArrayList;
+
+import model.Card;
+import model.Player;
+/**
+ * A class to create the game and all the controllers needed for the game to function.
+ * keeps references of the handlers for other classes to get.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class GameCreator {
 	private BoardHandler boardHandler;
 	private DeckHandler deckHandler;
@@ -78,7 +83,11 @@ public class GameCreator {
 	public BoardFrame getBoardFrame() {
 		return boardFrame;
 	}
-
+	/**
+	 * A method to try and end a players turn by making the move the player wants.
+	 * @param player the one that wants to end its turn.
+	 * @return true if the move was possible, false if it was not.
+	 */
 	public boolean endPlayerTurn(Player player) {
 		ArrayList<Card> cardsToTake = new ArrayList<Card>();
 		Card cardFromHand = null;
@@ -102,6 +111,9 @@ public class GameCreator {
 		
 		return move;
 	}
+	/**
+	 * a method to deal 4 new cards to all the players.
+	 */
 	public void newHand() {
 		for (int i = 0; i < 4; i++) {
 			for (Player player : getPlayerHandler().getPlayers()) {
@@ -109,6 +121,11 @@ public class GameCreator {
 			}
 		}
 	}
+	/**
+	 * a method to return all the cards from the players piles to the deck
+	 * to start over again with a "new" deck.
+	 * It's a good idea to shuffle the deck after this.
+	 */
 	public void newDeck() {
 		getPointCounter().endOfDeck(getPlayerHandler().getPlayers());
 		for (Player player : getPlayerHandler().getPlayers()) {

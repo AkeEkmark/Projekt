@@ -2,7 +2,11 @@ package main;
 
 import gui.StartUp.StartUpFrame;
 
-
+/**
+ * Main class of our program
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 
 
 

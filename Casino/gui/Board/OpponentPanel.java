@@ -1,19 +1,19 @@
 package gui.Board;
 
 
+import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.PanelBorder;
-
 
 import java.awt.Dimension;
 import java.util.ArrayList;
 
-import gui.Cosmetics.ColorPanel;
-
-
-
 import model.Card;
 import model.Player;
-
+/**
+ * A panel to display the opponents cards.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class OpponentPanel extends ColorPanel implements Players {
 	private String position;
 	private Player player;

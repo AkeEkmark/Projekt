@@ -14,6 +14,7 @@ public class Deck {
 	/**
 	 * Constructor for a deck of cards.
 	 * Creates an arraylist containing the playingcards. 
+	 * Ace - King
 	 * 0 - 12 = hearts.
 	 * 13 - 25 = spades.
 	 * 26 - 38 = clubs.
@@ -42,13 +43,25 @@ public class Deck {
 		deck.remove(i);
 		return card;
 	}
+	/**
+	 * Shuffles the deck using a Random.
+	 */
 	public void shuffleDeck() {
 		long seed = System.nanoTime();
 		Collections.shuffle(deck, new Random(seed));
 	}
+	/**
+	 * 
+	 * @return the deck
+	 */
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}
+	/**
+	 * takes a card and puts it back in the deck.
+	 * Also sets i to notSelected.
+	 * @param card the card to put back in the deck
+	 */
 	public void returnCard(Card card) {
 		card.setNotSelected();
 		deck.add(card);

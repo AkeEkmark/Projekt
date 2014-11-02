@@ -3,17 +3,15 @@ package gui.StartUp;
 import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.PanelBorder;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-
+/**
+ * A panel to choose the number of players.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class NbrPlayersPanel extends ColorPanel {
 	private JRadioButton c1;
 	private JRadioButton c2;

@@ -1,13 +1,15 @@
 package control;
 
-import javax.swing.JOptionPane;
-
-import model.Card;
-import model.ComputerPlayer;
-import model.HumanPlayer;
-import model.Player;
 import gui.Board.Gui;
 
+import javax.swing.JOptionPane;
+
+import model.Player;
+/**
+ * A class create and set up the game after the user has choosen the game options.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class GameHandler implements Runnable{
 	public class MonitorObject {
 		
@@ -30,7 +32,9 @@ public class GameHandler implements Runnable{
 		
 		
 	}
-
+	/**
+	 * deals the starting cards to the players and the board.
+	 */
 	private void setUpGame() {
 		gameCreator.getDeckHandler().shuffleDeck();
 		for (int i = 0; i < 4; i++) {

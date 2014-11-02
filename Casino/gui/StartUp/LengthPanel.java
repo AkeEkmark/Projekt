@@ -3,21 +3,16 @@ package gui.StartUp;
 import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.PanelBorder;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 
-import javax.swing.ButtonModel;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
-
+/**
+ * A panel to choose the lenght of the game.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class LengthPanel extends ColorPanel {
 	private JRadioButton d1;
 	private JRadioButton d2;

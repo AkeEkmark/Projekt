@@ -5,7 +5,6 @@ import gui.Cosmetics.Green;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,10 +13,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import model.Card;
-
+/**
+ * A panel to display the front of a card.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class FrontCardPanel extends ColorPanel {
 	private Card card;
 	private BufferedImage icon;

@@ -1,22 +1,21 @@
 package gui.Board;
 
-import gui.Cosmetics.Green;
-import gui.Cosmetics.PanelBorder;
 import gui.Cosmetics.ColorPanel;
+import gui.Cosmetics.PanelBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
-
 import model.Card;
 import model.Player;
-
+/**
+ * A panel to display the players cards.
+ * Listener to "select" cards.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 	private ProgressPanel progressPanel;
 	private ArrayList<FrontCardPanel> cardPanels;

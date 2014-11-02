@@ -6,7 +6,11 @@ import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * A panel to display score.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class ScoreboardPanel extends JPanel {
 	private JLabel l1;
 	private JLabel l2;

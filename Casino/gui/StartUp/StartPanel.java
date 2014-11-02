@@ -3,21 +3,15 @@ package gui.StartUp;
 import gui.Cosmetics.ColorPanel;
 import gui.Cosmetics.PanelBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
+/**
+ * A panel containing a startbutton for the game.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class StartPanel extends ColorPanel{
 	private JButton startbtn;
 	private StartUpFrame suf;

@@ -1,11 +1,7 @@
 package gui.Board;
 
 import gui.Cosmetics.ColorPanel;
-import gui.Cosmetics.Green;
-import gui.Cosmetics.PanelBorder;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -20,16 +16,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import java.util.Collections;
-
-import control.GameCreator;
-import control.GameHandler;
-import control.GameHandler.MonitorObject;
 import model.Card;
 import model.ComputerPlayer;
 import model.HumanPlayer;
 import model.Player;
-
+import control.GameCreator;
+/**
+ * A panel to display the board.
+ * Actions for when a user clicks on a card and when he ends his turn with the spacebar.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class BoardPanel extends ColorPanel implements MouseListener {
 	private ScoreboardPanel sbp;
 	private JPanel emptyslot;
@@ -216,6 +213,10 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 		}
 		
 	}
+	/**
+	 * makes the turns for the computer-players
+	 * @return the moves they did.
+	 */
 	public ArrayList<String> computerturns() {
 		ArrayList<String> moves = new ArrayList<String>();
 		for (Player player : gameCreator.getPlayerHandler().getPlayers()) {
@@ -230,6 +231,9 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 		return moves;
 		
 	}
+	/**
+	 * Ends the game with a final scoreboard.
+	 */
 	public void gameOver() {
 		gameCreator.getPointCounter().endOfDeck(gameCreator.getPlayerHandler().getPlayers());
 		String message = "The game is over, the final score is: \n";

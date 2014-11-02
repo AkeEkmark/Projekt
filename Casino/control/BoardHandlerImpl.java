@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 import model.Board;
 import model.Card;
-
+/**
+ * Implementation of the interface to control the board and keep a reference of the board.
+ * Can also add and remove gui elements from the board.
+ * @author Åke
+ *
+ */
 public class BoardHandlerImpl implements BoardHandler {
 	private Board board;
 	private BoardFrame boardFrame;

@@ -2,14 +2,19 @@ package gui.StartUp;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import control.GameHandler;
-
+/**
+ * A frame containing the panels for the game options.
+ * listens to the startbutton and creates the GameHandler when pressed.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class StartUpFrame extends JFrame implements ActionListener {
 
 	private StartPanel startPanel;

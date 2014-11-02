@@ -4,20 +4,19 @@ import gui.Board.BoardFrame;
 import gui.Board.Players;
 
 import java.util.ArrayList;
-
-
-
 import java.util.Random;
 
-import javax.swing.JOptionPane;
-
-import model.Board;
 import model.Card;
 import model.Card.Suit;
 import model.Card.Value;
-import model.Player;
 import model.ComputerPlayer;
-
+import model.Player;
+/**
+ * A class to control the computer-players of the game
+ * with references to parts of the program the method needs.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class AiControl {
 	private Random random;
 	private int difficulty;
@@ -30,6 +29,13 @@ public class AiControl {
 		this.boardFrame = boardFrame;
 		random = new Random();
 	}
+	/**
+	 * Analyses the players hand and the board to come up with possible moves.
+	 * If there are no moves it plays a card from the hand to the board.
+	 * The difficulty of the computer-player determines how "smart" the move will be.
+	 * @param player : the computer-player to make the move for.
+	 * @return a string describing the move the player did.
+	 */
 	public String makeMove(Player player) {
 		difficulty = ((ComputerPlayer)player).getDifficulty();
 		
@@ -155,6 +161,11 @@ public class AiControl {
 		avaliableMoves.clear();
 		return "no moves avaliable";
 	}
+	/**
+	 * An inner class to save the possible moves.
+	 * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+	 *
+	 */
 	public class AvaliableMoves {
 		private int cardOnHand;
 		private ArrayList<Integer> cardsOnBoard;

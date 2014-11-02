@@ -2,11 +2,15 @@ package control;
 
 import java.util.ArrayList;
 
-import model.Board;
 import model.Card;
 import model.Card.Value;
 import model.Player;
-
+/**
+ * Implements the interface to make the moves for the players.
+ * Checks if the moves are possible and if so makes them and updates the points accordingly.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class PlayerMovesImpl implements PlayerMoves {
 	private PlayerHandler playerHandler;
 	private BoardHandler boardHandler;

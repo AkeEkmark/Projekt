@@ -3,11 +3,14 @@ package gui.Board;
 import gui.Cosmetics.Green;
 
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/**
+ * A panel to display the amount of cards and spades the player has.
+ * @author Åke Ekmark, Andreas Wieselqvist och Simon Söderhäll.
+ *
+ */
 public class ProgressPanel extends JPanel {
 	private int pileSize = 0;
 	private int nbrofSpades = 0;
