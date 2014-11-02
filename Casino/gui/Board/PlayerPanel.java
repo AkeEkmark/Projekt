@@ -27,11 +27,11 @@ public class PlayerPanel extends ColorPanel implements MouseListener, Players{
 		//setLayout(new BorderLayout());
 		this.player = player;
 		cardPanels = new ArrayList<FrontCardPanel>();
-		progressPanel = new ProgressPanel();
+		//progressPanel = new ProgressPanel();
 		setPreferredSize(new Dimension(200, 150));
 		addMouseListener(this);
 		setBorder(new PanelBorder(""));
-		add(progressPanel);
+		//add(progressPanel);
 		setVisible(true);
 	}
 	public void addCard(Card card){

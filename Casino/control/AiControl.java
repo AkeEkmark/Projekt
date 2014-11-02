@@ -48,12 +48,69 @@ public class AiControl {
 					if (card.getValue() == cardOnBoard.getValue()) {
 						cardsToTake.add(indexOfCardOnBoard);
 						avaliableMoves.add(new AvaliableMoves(indexOfCardOnHand, cardsToTake, 0));
-						indexOfCardOnBoard++;
+						
 					}
+					indexOfCardOnBoard++;
 				}
+				indexOfCardOnBoard = 0;
 				indexOfCardOnHand++;
 			}
-			if (avaliableMoves.size() == 0) {
+			if (!avaliableMoves.isEmpty()) {
+				System.out.println("moves, trying to take cards from board");
+				System.out.println(avaliableMoves.size());
+				int rndmIndex = random.nextInt(avaliableMoves.size());
+				System.out.println(rndmIndex);
+				cardToTakeCardsWith = player.getCardsOnHand().get(avaliableMoves.get(rndmIndex).getCardOnHand());
+				for (int i : avaliableMoves.get(rndmIndex).getCardsOnBoard()) {
+					cardsToTakeFromBoard.add(boardHandler.getCardsOnBoard().get(i));
+				}
+				System.out.println("card i want to take with: "+ cardToTakeCardsWith);
+				for (Card card : cardsToTakeFromBoard) {
+					System.out.println("cards i want to take");
+					System.out.println(card.toString());
+				}
+				
+				if (playerMoves.takeCardFromBoard(cardToTakeCardsWith, cardsToTakeFromBoard, player)) {
+					for (Card card : cardsToTakeFromBoard) {
+						boardFrame.getBoardPanel().removeCard(card);
+					}
+					boardFrame.getBoardPanel().revalidate();
+					ArrayList<Players> players = boardFrame.getPlayers();
+					for (Players computer: players) {
+						if (computer.getPlayer() == player) {
+							computer.removeCard(null);
+							
+						}
+					}
+					player.setTurnEnded(true);
+					String move = "Computer took : ";
+					for (Card card : cardsToTakeFromBoard) {
+						move +=card.toString() + " , ";
+					}
+					move +=" with : " +cardToTakeCardsWith.toString();
+					return move;
+				}
+				else {
+					//ful lösning på en bugg
+					System.out.println("no moves, trying to put card on board");
+					cardToAddtoBoard = player.getCardsOnHand().get(random.nextInt(player.getCardsOnHand().size()));
+					if (playerMoves.addCardToBoard(cardToAddtoBoard, player)) {
+						boardFrame.getBoardPanel().addCard(cardToAddtoBoard);
+						boardFrame.getBoardPanel().revalidate();
+						ArrayList<Players> players = boardFrame.getPlayers();
+						for (Players computer: players) {
+							if (computer.getPlayer() == player) {
+								computer.removeCard(null);
+								
+							}
+						}
+						player.setTurnEnded(true);
+						String move = "Computer put "+ cardToAddtoBoard.toString() +" to the board";
+						return move;
+					}
+				}
+			}
+			else {
 				System.out.println("no moves, trying to put card on board");
 				cardToAddtoBoard = player.getCardsOnHand().get(random.nextInt(player.getCardsOnHand().size()));
 				if (playerMoves.addCardToBoard(cardToAddtoBoard, player)) {
@@ -72,34 +129,6 @@ public class AiControl {
 				}
 			}
 			
-			else if (avaliableMoves.size() > 0) {
-				System.out.println("moves, trying to take cards from board");
-				int rndmIndex = random.nextInt(avaliableMoves.size());
-				cardToTakeCardsWith = player.getCardsOnHand().get(avaliableMoves.get(rndmIndex).getCardOnHand());
-				for (int i : avaliableMoves.get(rndmIndex).getCardsOnBoard()) {
-					cardsToTakeFromBoard.add(boardHandler.getCardsOnBoard().get(i));
-				}
-				if (playerMoves.takeCardFromBoard(cardToTakeCardsWith, cardsToTakeFromBoard, player)) {
-					for (Card card : cardsToTakeFromBoard) {
-						boardFrame.getBoardPanel().removeCard(card);
-					}
-					boardFrame.getBoardPanel().revalidate();
-					ArrayList<Players> players = boardFrame.getPlayers();
-					for (Players computer: players) {
-						if (computer.getPlayer() == player) {
-							computer.removeCard(null);
-							
-						}
-					}
-					player.setTurnEnded(true);
-					String move = "Computer took : ";
-					for (Card card : cardsToTakeFromBoard) {
-						move.concat(card.toString());
-					}
-					move.concat(" with : " +cardToTakeCardsWith.toString());
-					return move;
-				}
-			}
 			break;
 		case 2:
 			for (Card cardOnBoard : boardHandler.getCardsOnBoard()) {

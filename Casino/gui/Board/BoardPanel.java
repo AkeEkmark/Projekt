@@ -20,6 +20,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import java.util.Collections;
+
 import control.GameCreator;
 import control.GameHandler;
 import control.GameHandler.MonitorObject;
@@ -182,18 +184,30 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 				boardFrame.getPlayer1().repaint();
 				player.setTurnEnded(true);
 				if (player.getCardsOnHand().size() == 0) {
+					if (gameCreator.getDeckHandler().getDeck().getDeck().isEmpty()) {
+						if (gameCreator.getGameType() == 1) {
+							moves = computerturns();
+							gameOver();
+						}
+					}
 					gameCreator.newHand();
 					moves = computerturns();
-					for (String string : moves) {
-						System.out.println(string);
-					}
+					
 				}
 				else {
 					moves = computerturns();
-					for (String string : moves) {
-						System.out.println(string);
-					}
+					
 				}
+				String message = "It's your turn again, the computer made the following moves: \n";
+				for (String move : moves) {
+					message += move+"\n ";
+				}
+				message += "The score is : \n";
+				for (Player score : gameCreator.getPlayerHandler().getPlayers()) {
+					message += score.getName()+" has " +score.getPoints() +" points \n";
+				}
+				JOptionPane.showMessageDialog(null, message);
+				
 				
 				
 				
@@ -205,7 +219,7 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 	public ArrayList<String> computerturns() {
 		ArrayList<String> moves = new ArrayList<String>();
 		for (Player player : gameCreator.getPlayerHandler().getPlayers()) {
-			
+		
 			if (player instanceof HumanPlayer) {	
 			}
 			else if (player instanceof ComputerPlayer) {
@@ -215,6 +229,15 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 		}
 		return moves;
 		
+	}
+	public void gameOver() {
+		gameCreator.getPointCounter().endOfDeck(gameCreator.getPlayerHandler().getPlayers());
+		String message = "The game is over, the final score is: \n";
+		for (Player score : gameCreator.getPlayerHandler().getPlayers()) {
+			message += score.getName()+" has " +score.getPoints() +" points \n";
+		}
+		JOptionPane.showMessageDialog(null, message);
+		System.exit(0);
 	}
 
 }
