@@ -58,8 +58,10 @@ public class StartUpFrame extends JFrame implements ActionListener {
 						"You need to choose number of players", "2,3,4 it's up to you",
 						JOptionPane.WARNING_MESSAGE);
 			} else {
-				gameHandler = new GameHandler(h, x, y);
 				this.setVisible(false);
+				new Thread(gameHandler = new GameHandler(h, x, y)).start();;
+				
+				
 			}
 		}
 	}

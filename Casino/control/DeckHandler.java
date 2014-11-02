@@ -7,4 +7,5 @@ public interface DeckHandler {
 	public Card getCard(int i);
 	public void shuffleDeck();
 	public Deck getDeck();
+	public void returnCard(Card card);
 }

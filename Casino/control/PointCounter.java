@@ -40,7 +40,7 @@ public class PointCounter {
 	}
 	private void addPoints(int points, Player player) {
 		player.addPoints(points);
-		sbp.addPlayerScore(points, player.getPosition());
+		//sbp.addPlayerScore(points, player.getPosition());
 	}
 	public void endOfDeck(ArrayList<Player> players) {
 		int maxCards;

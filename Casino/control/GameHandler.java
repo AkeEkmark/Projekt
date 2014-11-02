@@ -1,19 +1,33 @@
 package control;
 
+import javax.swing.JOptionPane;
+
+import model.Card;
+import model.ComputerPlayer;
+import model.HumanPlayer;
 import model.Player;
 import gui.Board.Gui;
 
-public class GameHandler {
+public class GameHandler implements Runnable{
+	public class MonitorObject {
+		
+	}
+
 	private GameCreator gameCreator;
 	private Gui gui;
+	
 
+	
 	public GameHandler(int nbrOfOpponents, int difficulty, int gameType) {
 		gameCreator = new GameCreator(nbrOfOpponents, difficulty, gameType);
-		gui = new Gui(gameCreator);
+		(new Thread(gui = new Gui(gameCreator))).start();
+		
 		gameCreator.setBoardFrame(gui.getBoardFrame());
 		gameCreator.createHandlers();
 		gui.getBoardFrame().createPanels();
 		setUpGame();
+		JOptionPane.showMessageDialog(gui.getBoardFrame(), "It's your turn to start the game, press space when you have selected cards to play");
+		
 		
 	}
 
@@ -26,4 +40,14 @@ public class GameHandler {
 			}
 		}
 	}
+	
+	
+
+	@Override
+	public void run() {
+		
+		
+	}
+	
+	
 }

@@ -35,7 +35,7 @@ public class Card {
 		return fileName;
 	}
 	public String toString() {
-		return "Card of Suit: " +suit +" and Value: " +value;
+		return value +" of " +suit;
 	}
 	public boolean isSelected() {
 		return isSelected;

@@ -2,6 +2,7 @@ package control;
 
 import java.util.ArrayList;
 
+import control.GameHandler.MonitorObject;
 import model.Card;
 import model.Player;
 import gui.Board.BoardFrame;
@@ -17,11 +18,13 @@ public class GameCreator {
 	private int difficulty;
 	private int gameType;
 	private BoardFrame boardFrame;
+
 	
 	public GameCreator(int nbrOfOpponents, int difficulty, int gameType) {
 		this.nbrOfOpponents = nbrOfOpponents;
 		this.difficulty = difficulty;
 		this.gameType = gameType;
+
 		
 	}
 
@@ -31,7 +34,7 @@ public class GameCreator {
 		playerHandler = new PlayerHandlerImpl(nbrOfOpponents, difficulty, getBoardHandler(), getBoardFrame());
 		pointCounter = new PointCounter(getBoardHandler());
 		playerMoves = new PlayerMovesImpl(getPlayerHandler(), getBoardHandler(), getPointCounter());
-		aiControl = new AiControl(getBoardHandler(), getPlayerMoves());
+		aiControl = new AiControl(getBoardHandler(), getPlayerMoves(), getBoardFrame());
 		
 	}
 
@@ -99,4 +102,24 @@ public class GameCreator {
 		
 		return move;
 	}
+	public void newHand() {
+		for (int i = 0; i < 4; i++) {
+			for (Player player : getPlayerHandler().getPlayers()) {
+				getPlayerHandler().dealCardToPlayer(player, getDeckHandler().getCard(0));
+			}
+		}
+	}
+	public void newDeck() {
+		getPointCounter().endOfDeck(getPlayerHandler().getPlayers());
+		for (Player player : getPlayerHandler().getPlayers()) {
+			for (Card card : player.getCardsInPile()) {
+				getDeckHandler().returnCard(card);
+			}
+			for (Player player1 : getPlayerHandler().getPlayers()) {
+				player1.getCardsInPile().clear();
+			}
+			
+		}
+	}
+
 }

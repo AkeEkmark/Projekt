@@ -22,7 +22,10 @@ import javax.swing.KeyStroke;
 
 import control.GameCreator;
 import control.GameHandler;
+import control.GameHandler.MonitorObject;
 import model.Card;
+import model.ComputerPlayer;
+import model.HumanPlayer;
 import model.Player;
 
 public class BoardPanel extends ColorPanel implements MouseListener {
@@ -33,6 +36,7 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 	private ActionMap actionMap;
 	private GameCreator gameCreator;
 	private BoardFrame boardFrame;
+
 	public BoardPanel(GameCreator gameCreator, BoardFrame boardFrame) { // mittenruta gr�n
 		super("Green");
 		
@@ -138,7 +142,9 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (!gameCreator.endPlayerTurn(gameCreator.getPlayerHandler().getPlayers().get(0))) {
+			Player player = gameCreator.getPlayerHandler().getPlayers().get(0);
+			ArrayList<String> moves = new ArrayList<String>();
+			if (!gameCreator.endPlayerTurn(player)) {
 				JOptionPane.showMessageDialog(null, "That move is not possible");
 			}
 			else {
@@ -174,11 +180,40 @@ public class BoardPanel extends ColorPanel implements MouseListener {
 				}
 				repaint();
 				boardFrame.getPlayer1().repaint();
+				player.setTurnEnded(true);
+				if (player.getCardsOnHand().size() == 0) {
+					gameCreator.newHand();
+					moves = computerturns();
+					for (String string : moves) {
+						System.out.println(string);
+					}
+				}
+				else {
+					moves = computerturns();
+					for (String string : moves) {
+						System.out.println(string);
+					}
+				}
+				
 				
 				
 			}
 			
 		}
+		
+	}
+	public ArrayList<String> computerturns() {
+		ArrayList<String> moves = new ArrayList<String>();
+		for (Player player : gameCreator.getPlayerHandler().getPlayers()) {
+			
+			if (player instanceof HumanPlayer) {	
+			}
+			else if (player instanceof ComputerPlayer) {
+				String move = gameCreator.getAiControl().makeMove(player);
+				moves.add(move);
+			}
+		}
+		return moves;
 		
 	}
 

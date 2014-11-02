@@ -60,7 +60,7 @@ public class PlayerMovesImpl implements PlayerMoves {
 				pointCounter.calculatePoints(allCards, player);
 				return true;
 			}
-			return false;
+			
 		}
 		
 		return false;

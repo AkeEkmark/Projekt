@@ -1,10 +1,15 @@
 package control;
 
+import gui.Board.BoardFrame;
+import gui.Board.Players;
+
 import java.util.ArrayList;
 
 
 
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 import model.Board;
 import model.Card;
@@ -18,12 +23,14 @@ public class AiControl {
 	private int difficulty;
 	private BoardHandler boardHandler;
 	private PlayerMoves playerMoves;
-	public AiControl(BoardHandler boardHandler, PlayerMoves playerMoves) {
+	private BoardFrame boardFrame;
+	public AiControl(BoardHandler boardHandler, PlayerMoves playerMoves, BoardFrame boardFrame) {
 		this.boardHandler = boardHandler;
 		this.playerMoves = playerMoves;
+		this.boardFrame = boardFrame;
 		random = new Random();
 	}
-	public void makeMove(Player player) {
+	public String makeMove(Player player) {
 		difficulty = ((ComputerPlayer)player).getDifficulty();
 		
 		ArrayList<AvaliableMoves> avaliableMoves = new ArrayList<AvaliableMoves>();
@@ -47,20 +54,50 @@ public class AiControl {
 				indexOfCardOnHand++;
 			}
 			if (avaliableMoves.size() == 0) {
+				System.out.println("no moves, trying to put card on board");
 				cardToAddtoBoard = player.getCardsOnHand().get(random.nextInt(player.getCardsOnHand().size()));
 				if (playerMoves.addCardToBoard(cardToAddtoBoard, player)) {
-					
+					boardFrame.getBoardPanel().addCard(cardToAddtoBoard);
+					boardFrame.getBoardPanel().revalidate();
+					ArrayList<Players> players = boardFrame.getPlayers();
+					for (Players computer: players) {
+						if (computer.getPlayer() == player) {
+							computer.removeCard(null);
+							
+						}
+					}
+					player.setTurnEnded(true);
+					String move = "Computer put "+ cardToAddtoBoard.toString() +" to the board";
+					return move;
 				}
 			}
 			
 			else if (avaliableMoves.size() > 0) {
+				System.out.println("moves, trying to take cards from board");
 				int rndmIndex = random.nextInt(avaliableMoves.size());
 				cardToTakeCardsWith = player.getCardsOnHand().get(avaliableMoves.get(rndmIndex).getCardOnHand());
-				for (int i : avaliableMoves.get(rndmIndex).cardsOnBoard) {
+				for (int i : avaliableMoves.get(rndmIndex).getCardsOnBoard()) {
 					cardsToTakeFromBoard.add(boardHandler.getCardsOnBoard().get(i));
 				}
 				if (playerMoves.takeCardFromBoard(cardToTakeCardsWith, cardsToTakeFromBoard, player)) {
-					
+					for (Card card : cardsToTakeFromBoard) {
+						boardFrame.getBoardPanel().removeCard(card);
+					}
+					boardFrame.getBoardPanel().revalidate();
+					ArrayList<Players> players = boardFrame.getPlayers();
+					for (Players computer: players) {
+						if (computer.getPlayer() == player) {
+							computer.removeCard(null);
+							
+						}
+					}
+					player.setTurnEnded(true);
+					String move = "Computer took : ";
+					for (Card card : cardsToTakeFromBoard) {
+						move.concat(card.toString());
+					}
+					move.concat(" with : " +cardToTakeCardsWith.toString());
+					return move;
 				}
 			}
 			break;
@@ -86,6 +123,8 @@ public class AiControl {
 		default:
 			break;
 		}
+		avaliableMoves.clear();
+		return "no moves avaliable";
 	}
 	public class AvaliableMoves {
 		private int cardOnHand;

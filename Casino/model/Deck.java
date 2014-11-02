@@ -49,4 +49,8 @@ public class Deck {
 	public ArrayList<Card> getDeck() {
 		return deck;
 	}
+	public void returnCard(Card card) {
+		card.setNotSelected();
+		deck.add(card);
+	}
 }

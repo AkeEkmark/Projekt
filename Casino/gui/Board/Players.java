@@ -7,4 +7,6 @@ public interface Players {
 	public Player getPlayer();
 	public void addCard(Card card);
 	public void removeCard(Card card);
+	public void revalidate();
+	public void repaint();
 }

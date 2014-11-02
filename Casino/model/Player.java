@@ -9,7 +9,14 @@ public abstract class Player {
 	protected ArrayList<Card> cardsOnHand;
 	protected ArrayList<Card> cardsInPile;
 	protected Board board;
+	protected boolean turnEnded = false;
 	
+	public boolean isTurnEnded() {
+		return turnEnded;
+	}
+	public void setTurnEnded(boolean turnEnded) {
+		this.turnEnded = turnEnded;
+	}
 	public void addPoints(int points) {
 		this.points += points;
 	}
@@ -53,4 +60,5 @@ public abstract class Player {
 	public void setBoard(Board board) {
 		this.board = board;
 	}
+	
 }

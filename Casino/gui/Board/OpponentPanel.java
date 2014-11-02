@@ -42,6 +42,9 @@ public class OpponentPanel extends ColorPanel implements Players {
 	@Override
 	public void removeCard(Card card) {
 		cards.remove(0);
+		remove(0);
+		revalidate();
+		repaint();
 		
 	}
 	

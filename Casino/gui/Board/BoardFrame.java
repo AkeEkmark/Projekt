@@ -1,18 +1,14 @@
 package gui.Board;
 
-import gui.Cosmetics.ColorPanel;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import control.GameCreator;
 import model.Card;
-import model.Card.Suit;
-import model.Card.Value;
 import model.Player;
+import control.GameCreator;
 
 public class BoardFrame extends JFrame{
 	private BoardPanel boardPanel;
@@ -85,6 +81,9 @@ public class BoardFrame extends JFrame{
 			}
 		}
 		
+	}
+	public ArrayList<Players> getPlayers() {
+		return players;
 	}
 	
 }
